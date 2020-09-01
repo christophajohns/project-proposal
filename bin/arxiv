@@ -1,3 +1,0 @@
-#!/bin/bash
-echo "Generating the arxiv preprint"
-docker run --rm --volume "`pwd`:/data" --user `id -u`:`id -g` aggipp/arxiv-collector preprint.tex

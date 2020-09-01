@@ -1,16 +1,10 @@
 #!/bin/bash
 mkdir rel
 echo "Start all compile jobs in parallel"
-source bin/arxiv
 source bin/word
+source bin/pdf
 source bin/spellcheck
-source bin/acm
-source bin/llncs
 echo "Export release files"
-cp preprint.pdf rel
-cp preprint.log rel
-cp arxiv.tar.gz rel
 cp main.docx rel
-cp spellcheck.html rel
 cp acm.pdf rel
-cp llncs.pdf rel
+cp spellcheck.html rel
