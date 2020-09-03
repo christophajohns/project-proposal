@@ -62,7 +62,7 @@ Christoph Albert Johns is responsible for creating the test application, writing
 \section{Organization}
 \label{sect:organization}
 
-The research project will be conducted as a two-person project on the basis of previously published work in the domain of virtual lighting in augmented reality scenes and user-based studies.
+The research project will be conducted as a two-person project on the basis of previously published work in the domain of virtual lighting in \gls{AR} scenes and user-based studies.
 First, the project's theoretical foundation will be studied in parallel with designing and preparing the test application.
 Second, the experiment setup will be decided and prepared. In parallel the test application will be programmed and the basic project presentation will be prepared.
 Third, the study participants will be continuously recruited and the required data will be collected and analyzed in parallel.
@@ -72,7 +72,7 @@ Finally, the project presentation will be completed and presented.
 
 \section{Background}
 \label{sect:background}
-The proposed research project builds on the works in evaluating visual characteristics of AR objects in regards to usability (e.g. \cite{gabbard_effects_2006}) and in approximating natural lighting conditions within virtual scenes in augmented reality (e.g. \cite{aittala_inverse_2010}).
+The proposed research project builds on the works in evaluating visual characteristics of \gls{AR} objects in regards to usability (e.g. \cite{gabbard_effects_2006}) and in approximating natural lighting conditions within virtual scenes in augmented reality (e.g. \cite{aittala_inverse_2010}).
 Camera-sensor data is used to probe, estimate, and approximate naturalistic virtual lighting that is dynamically added to the objects in a scene \cite{apple_arlightestimate_nodate,apple_pointlight_nodate}.
 Depending on the scene and lighting conditions, this can be a computationally intensive process \cite{steed_constructing_2016} and -- depending on the resulting contrast -- lead to improved or worsened object legibility \cite{gabbard_effects_2006}.
 
@@ -80,18 +80,17 @@ Depending on the scene and lighting conditions, this can be a computationally in
 \section{Problem statement}
 \label{sect:problem_statement}
 
-The project will investigate whether the computationally intensive environment light probing can be avoided while still achieving comparable levels of immersion in augmented reality scenes.
+The project will investigate whether computationally intensive environment light probing and estimation can be avoided while still achieving comparable levels of immersion in augmented reality scenes.
 To achieve naturalistic virtual lighting, video from the AR system's camera feed has to continuously be probed at a high frequency to estimate the environment lighting conditions.
 These estimates are required input data for the used shading algorithms.
 If users do not notice a difference between scenes with and without automatic naturalistic lighting, these processes can be disabled and the required resources can be freed.
-While there have been user-based studies evaluating visual characteristics of AR objects, this aspect appears not to have been examined yet.
+While there have been user-based studies evaluating visual characteristics of \gls{AR} objects, this particular aspect appears not to have been examined yet.
 
 \section{Problem}
 \label{sect:problem}
 
-\todo[inline]{State a clear and concise problem that is going to be investigated.  Answer the question What is the real problem? - What is the problem or value proposition addressed by the project? – Ideally one sentence that is very concrete. For example:}
-
-Avoiding ACK implosion is essential to enable multicast file distribution to scale to large numbers of receivers. What techniques can we use and how should they be used.
+Avoiding continuous \gls{AR} light estimation could free resources for either alternative uses or extended battery life.
+Do users perceive a difference between scenes with or without it?
 
 \section{Hypothesis}
 \label{sect:hypothesis}
@@ -160,8 +159,7 @@ The project will start on 25 August and end at 00:00 on 30 August. There will be
 The total word count is XXX , with XXX words excluding title, authors, milestone/schedule, references, and words in this sentence, i.e., it is a word count from “Allocation of responsibilities” to end of “Method” section.
 \todo[inline]{The value XXX does not include the instructions and the project plan should be handed in without instructions.}
 
-\section{Acronyms}
-\renewcommand{\glossarysection}[2][]{} %% skip the title
-\printglossary[type=\acronymtype,nonumberlist]
+\printglossary
+\printglossary[type=\acronymtype, nonumberlist]
 \clearpage
 \end{document}
