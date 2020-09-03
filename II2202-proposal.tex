@@ -73,46 +73,49 @@ Finally, the project presentation will be completed and presented.
 \section{Background}
 \label{sect:background}
 The proposed research project builds on the works in evaluating visual characteristics of AR objects in regards to usability (e.g. \cite{gabbard_effects_2006}) and in approximating natural lighting conditions within virtual scenes in augmented reality (e.g. \cite{aittala_inverse_2010}).
-Camera-sensor data is used to probe, estimate, and approximate naturalistic virtual lighting that is dynamically added to the objects in a scene \cite{apple_arlightestimate_nodate}.
+Camera-sensor data is used to probe, estimate, and approximate naturalistic virtual lighting that is dynamically added to the objects in a scene \cite{apple_arlightestimate_nodate,apple_pointlight_nodate}.
 Depending on the scene and lighting conditions, this can be a computationally intensive process \cite{steed_constructing_2016} and -- depending on the resulting contrast -- lead to improved or worsened object legibility \cite{gabbard_effects_2006}.
 
 
 \section{Problem statement}
 \label{sect:problem_statement}
-\todo[inline]{Describe the problem(s) that have been found in the area described in the background. Describe the problem area (in detail). For example:}
 
-The project will investigate how to avoid so-called “acknowledgement implosion” when distributing a file using multicast. If all of the nodes that successfully receive a packet were to acknowledge it, then the sender would receive a very large number of \glspl{ACK}, when it fact it is most interested in understanding which node did not receive the packet, hence to which node (or nodes) it should retransmit the packet.
+The project will investigate whether the computationally intensive environment light probing can be avoided while still achieving comparable levels of immersion in augmented reality scenes.
+To achieve naturalistic virtual lighting, video from the AR system's camera feed has to continuously be probed at a high frequency to estimate the environment lighting conditions.
+These estimates are required input data for the used shading algorithms.
+If users do not notice a difference between scenes with and without automatic naturalistic lighting, these processes can be disabled and the required resources can be freed.
+While there have been user-based studies evaluating visual characteristics of AR objects, this aspect appears not to have been examined yet.
 
 \section{Problem}
 \label{sect:problem}
 
 \todo[inline]{State a clear and concise problem that is going to be investigated.  Answer the question What is the real problem? - What is the problem or value proposition addressed by the project? – Ideally one sentence that is very concrete. For example:}
 
-Avoiding \gls{ACK} implosion is essential to enable multicast file distribution to scale to large numbers of receivers. What techniques can we use and how should they be used.
+Avoiding ACK implosion is essential to enable multicast file distribution to scale to large numbers of receivers. What techniques can we use and how should they be used.
 
 \section{Hypothesis}
 \label{sect:hypothesis}
 \todo[inline]{State a hypothesis that you think would be the outcome of your investigation. Answer the question: What is your hypothesis? (Note that the hypothesis must be measurable to be confirmed or falsified. Moreover not all projects have hypothesis.).}
 
-Avoiding \gls{ACK} implosion can be performed by sending only \glspl{NACK}, rather than sending positive \glspl{ACK}.
+Avoiding ACK implosion can be performed by sending only NACK, rather than sending positive ACK.
 
 \section{Purpose}
 \label{sect:purpose}
 \todo[inline]{Explain the purpose(s) of your project / investigation (the expected deliverables from the project). Answer the question: Why do this project? (purpose/effect, i.e. – the purpose can be to save environment but the goal is to build a robot that can pick up trash.) Why would you carry out the project? For example:}
 
-The purpose is to present one or more techniques that can be used with multicast file distribution to prevent an \gls{ACK} implosion, thus fostering the use of multicast file distribution.
+The purpose is to present one or more techniques that can be used with multicast file distribution to prevent an ACK implosion, thus fostering the use of multicast file distribution.
 
 \section{Goal(s)}
 \label{sect:goals}
 \todo[inline]{Explain the goal(s), objective(s), and/or the result(s) of your investigation. What are the expected deliverables/outcomes from the project? For example:}
 
-An analytic model showing the advantage of using only \glspl{NACK} versus positive \glspl{ACK} will be derived based on fitting curves to the experimental data for both forms of multicast file distribution. This model can be used to invalidate the hypothesis.
+An analytic model showing the advantage of using only NACK versus positive ACK will be derived based on fitting curves to the experimental data for both forms of multicast file distribution. This model can be used to invalidate the hypothesis.
 
 \section{Tasks}
 \label{sect:tasks}
 \todo[inline]{Describe the tasks and sub tasks that are necessary to complete the work. Grouped into a work breakdown structure. For example:}
 
-A simple multicast file server and a corresponding client will be implemented. A number of instances of the client will be executed with different starting times, but starting within \SI{30}{\second} of each other. Our test file will be a file of sufficient size to require more than \SI{30}{\second} to transmit when transported using \gls{UDP} datagrams via a \SI{10}{Mbps} wired Ethernet. This file will contain a series of pseudo-random bytes. The total number of datagrams transmitted by all of the nodes will be compared when using positive \glspl{ACK} and when only generating \glspl{NACK}. The number of clients will vary from 1 to 1025, in increments of 8 clients.
+A simple multicast file server and a corresponding client will be implemented. A number of instances of the client will be executed with different starting times, but starting within \SI{30}{\second} of each other. Our test file will be a file of sufficient size to require more than \SI{30}{\second} to transmit when transported using UDP datagrams via a \SI{10}{Mbps} wired Ethernet. This file will contain a series of pseudo-random bytes. The total number of datagrams transmitted by all of the nodes will be compared when using positive ACK and when only generating NACK. The number of clients will vary from 1 to 1025, in increments of 8 clients.
 
 \section{Method}
 \label{sect:method}
@@ -120,7 +123,7 @@ A simple multicast file server and a corresponding client will be implemented. A
 Argue: why this is the most appropriate method or methods. For example:
 }
 
-The project will use the empirical method\cite{peter_bock_getting_2001}, as it is not clear to the authors that we can use an analytical method to produce an accurate model of the protocol in the available time period for this assignment (given the available resources).
+The project will use the empirical method, as it is not clear to the authors that we can use an analytical method to produce an accurate model of the protocol in the available time period for this assignment (given the available resources).
 
 \section{Milestone chart (time schedule)}
 \label{sect:milestones}
@@ -140,7 +143,7 @@ The project will start on 25 August and end at 00:00 on 30 August. There will be
 
 \item{28 August} model completed based upon using the statistical package R to do the curve fitting to the experimental data
 
-\item{29 August} evaluation of model for additional data points to be check by new experimental runs to check that the model accurately produces the expected number of packets for the given number of clients for both \gls{ACK} and \gls{NACK} alternatives.
+\item{29 August} evaluation of model for additional data points to be check by new experimental runs to check that the model accurately produces the expected number of packets for the given number of clients for both ACK and NACK alternatives.
 
 \item{Before 30 August} submit final report (the report will have been written in parallel with each of the above steps)
 \end{description}
