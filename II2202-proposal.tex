@@ -11,7 +11,7 @@
 \input{lib/includes}
 \input{lib/acronyms}
 
-\title{Effects of Automatic Naturalistic Lighting on Immersion in Indoor Augmented Reality Scenes}
+\title{Proposing a Method for Investigating a Possible Tradeoff Between Enhancing Immersion and Impacting Energy Consumption by Enabling Automatic Naturalistic Lighting in Augmented Reality Games}
 \author{
         \textsc{Stefano Formicola}
             \qquad
@@ -55,8 +55,8 @@
 \section{Allocation of responsibilities}
 \label{sect:alloc_responsibilities}
 
-Stefano Formicola is responsible for collecting data during the experiment, writing the research questions, method, results, and discussion, and presenting the final project.
-Christoph Albert Johns is responsible for creating the test application, writing the abstract, introduction, and literature study, and presenting the project plan.
+Stefano Formicola is responsible for collecting data during the experiment, writing the sections regarding research questions, method, results, and discussion, and presenting the final project.
+Christoph Albert Johns is responsible for creating the test application, writing the abstract and sections regarding introduction and literature study, and presenting the project plan.
 
 
 \section{Organization}
@@ -76,6 +76,8 @@ The proposed research project builds on the works in evaluating visual character
 Camera-sensor data is used to probe, estimate, and approximate naturalistic virtual lighting that is dynamically added to the objects in a scene \cite{apple_arlightestimate_nodate,apple_pointlight_nodate}.
 Depending on the scene and lighting conditions, this can be a computationally intensive process \cite{steed_constructing_2016} and -- depending on the resulting contrast -- lead to improved or worsened object legibility \cite{gabbard_effects_2006}.
 
+There is already research on immersion in digital games -- even in few cases in AR games -- but not on the effects of dynamic lighting.
+Proposed methods for dynamic lighting in AR scenes are said to be computationally intensive.
 
 \section{Problem statement}
 \label{sect:problem_statement}
@@ -86,29 +88,41 @@ These estimates are required input data for the used shading algorithms.
 If users do not notice a difference between scenes with and without automatic naturalistic lighting, these processes can be disabled and the required resources can be freed.
 While there have been user-based studies evaluating visual characteristics of \gls{AR} objects, this particular aspect appears not to have been examined yet.
 
+There could be a trade-off between immersion and energy efficiency.
+
 \section{Problem}
 \label{sect:problem}
 
-Avoiding continuous \gls{AR} light estimation could free resources for either alternative uses or extended battery life.
-Do users perceive a difference between scenes with or without it?
+If there is a tradeoff between immersion and energy consumption, avoiding continuous \gls{AR} light estimation could free resources for either alternative uses or extended battery life.
+If we find no tradeoff, developers and designers can be responsibly encouraged to implement features that enhance immersion.
+That is why we will explore the following questions:
+
+\begin{description}
+    \item[RQ1.] Do users perceive a difference in immersion between enabled and disabled automatic naturalistic lighting?
+    \item[RQ1a.] If so, are they able to tell that its is caused by the difference in lighting?
+    \item[RQ2.] How does enabling automatic naturalistic lighting affect battery consumption?
+\end{description}
 
 \section{Hypothesis}
 \label{sect:hypothesis}
-\todo[inline]{State a hypothesis that you think would be the outcome of your investigation. Answer the question: What is your hypothesis? (Note that the hypothesis must be measurable to be confirmed or falsified. Moreover not all projects have hypothesis.).}
 
-Avoiding ACK implosion can be performed by sending only NACK, rather than sending positive ACK.
+While we are aware that we will only be able to test the proposed method on a small scale, we hypothesize the following outcomes for a full-scale experiment:
+
+\begin{description}
+    \item[H1.] Users experience higher immersion levels when automatic naturalistic lighting is enabled.
+    \item[H1a.] Users are able to tell that the lighting was different between both runs of the experiment.
+    \item[H2.] Battery consumption levels are higher when automatic naturalistic lighting is enabled.
+\end{description}
 
 \section{Purpose}
 \label{sect:purpose}
-\todo[inline]{Explain the purpose(s) of your project / investigation (the expected deliverables from the project). Answer the question: Why do this project? (purpose/effect, i.e. – the purpose can be to save environment but the goal is to build a robot that can pick up trash.) Why would you carry out the project? For example:}
 
-The purpose is to present one or more techniques that can be used with multicast file distribution to prevent an ACK implosion, thus fostering the use of multicast file distribution.
+The purpose of this project is to illuminate the relationship between immersion and energy impact in deploying advanced \gls{AR} features, thus empowering developers and designers to decide the most appropriate feature sets for their applications considering both user experience and sustainability aspects.
 
 \section{Goal(s)}
 \label{sect:goals}
-\todo[inline]{Explain the goal(s), objective(s), and/or the result(s) of your investigation. What are the expected deliverables/outcomes from the project? For example:}
 
-An analytic model showing the advantage of using only NACK versus positive ACK will be derived based on fitting curves to the experimental data for both forms of multicast file distribution. This model can be used to invalidate the hypothesis.
+The goal of this project is to propose and pre-test a method for exploring the relationship described above using a simple example application and an existing \gls{AR} \gls{API}.
 
 \section{Tasks}
 \label{sect:tasks}
@@ -118,11 +132,29 @@ A simple multicast file server and a corresponding client will be implemented. A
 
 \section{Method}
 \label{sect:method}
-\todo[inline]{Describe and explain the research methods that will be used for the project. What research method (or methods) will be used? 
-Argue: why this is the most appropriate method or methods. For example:
-}
 
-The project will use the empirical method, as it is not clear to the authors that we can use an analytical method to produce an accurate model of the protocol in the available time period for this assignment (given the available resources).
+The project will use an empirical approach to test two different lighting options in an experiment setting and analyze the results using statistical methods.
+More specifically, we will modify an open-source \gls{AR} card-matching game \cite{} to include an option to enable and disable automatic naturalistic lighting using RealityKit's ".disableAREnvironmentLighting" render option.
+The sample game will be presented to participants on an Apple iPad in an indoor setting with controlled lighting conditions where participants will be asked to complete one round of the card-matching game for each of the two render options.
+The order of render options will be randomized to improve reliability.
+The purpose of the experiment will be stated to the participants only in general terms as "investigating immersion in \gls{AR} games" to avoid influencing their perception of the scene by directing their attention towards lighting.
+Participants will not be informed about the currently active render option for the same reason.
+The sample application has been chosen due to its simplicity in functionality and visual presentation, thereby reducing the risk of errors in use or unwanted effects on immersion due to scene complexity between runs.
+
+
+During each run, the Apple application "Instruments" \cite{} will be used to log the test device's \gls{CPU} usage and energy impact according to Apple's type definitions \cite{} in three second intervals.
+Additionally, the time to completion will be recorded from the moment the participants are handed the test device until the success message appears on screen.
+The participants will be encouraged to think aloud \cite{} during their app usage.
+After each run, participants will be asked to fill out the \gls{IEQ} (see \ref{sect:ieq}) to measure their levels of immersion dependent on the lighting treatment.
+After the second run, participants will additionally be asked about their general experience using the application and elaborate on any differences they noticed between both runs.
+If a participant mentions one of the words "light", "lighting", "color", or "contrast" in the think-aloud-protocol or while answering these questions, the difference in lighting is considered as noticed by the user.
+The expected duration of the experiment per participant is 30 minutes.
+The expected number of participants in the small-scale pre-study of this project is ten.
+
+After the above data has been successfully gathered, we will conduct a statistical analysis regarding the participants' immersion levels and the CPU usage between both lighting conditions using Student's \textit{t}-test \cite{} to check for significant differences.
+Additionally, we will report the results of the think-aloud-protocol and interview after the experiment using descriptive statistics.
+We are aware, however, that both the results of our analysis of variance as well as the descriptive statistics should not be used to infer knowledge about either the effect of automatic naturalistic lighting on immersion or on energy consumption.
+Rather, the analysis is carried out in order to evaluate the chosen methods and to illustrate how such analysis should be done if the same study were carried out on a larger scale.
 
 \section{Milestone chart (time schedule)}
 \label{sect:milestones}
@@ -148,11 +180,15 @@ The project will start on 25 August and end at 00:00 on 30 August. There will be
 \end{description}
 
 \bibliography{II2202-proposal}
-%%\bibliographystyle{IEEEtran}
+% \bibliographystyle{IEEEtran}
 \bibliographystyle{myIEEEtran}
 
 \appendix
-\section{Optional appendix}
+\section{Appendix}
+\label{sect:appendix}
+
+\subsection{Immersive Experience Questionnaire}
+\label{sect:ieq}
 
 \todo[inline]{In this section you can additional information that may be relevant to your reader, but is not an answer to any of the above points. Note that the Appendix or Appendices are Optional.}
 
