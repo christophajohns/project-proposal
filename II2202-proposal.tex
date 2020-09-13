@@ -72,23 +72,19 @@ Finally, the project presentation will be completed and presented.
 
 \section{Background}
 \label{sect:background}
-The proposed research project builds on the works in evaluating visual characteristics of \gls{AR} objects in regards to usability (e.g. \cite{gabbard_effects_2006}) and in approximating natural lighting conditions within virtual scenes in augmented reality (e.g. \cite{aittala_inverse_2010}).
-Camera-sensor data is used to probe, estimate, and approximate naturalistic virtual lighting that is dynamically added to the objects in a scene \cite{apple_arlightestimate_nodate,apple_pointlight_nodate}.
-Depending on the scene and lighting conditions, this can be a computationally intensive process \cite{steed_constructing_2016} and -- depending on the resulting contrast -- lead to improved or worsened object legibility \cite{gabbard_effects_2006}.
-
-There is already research on immersion in digital games -- even in few cases in AR games -- but not on the effects of dynamic lighting.
-Proposed methods for dynamic lighting in AR scenes are said to be computationally intensive.
+The proposed research project builds on two main lines of research: prior works evaluating the relationship between visual characteristics of \gls{AR} objects and user experience (e.g. \cite{gabbard_effects_2006}) and research on the approximation of natural lighting conditions within virtual scenes in augmented reality (e.g. \cite{aittala_inverse_2010}).
+While there has been extensive research on the effect of design decisions on immersion in digital games -- even in \gls{AR} games in a few cases (e.g. \cite{}) -- the effect of lighting and more specifically automatic naturalistic lighting in \gls{AR} games seems not to have been examined yet.
+To achieve naturalistic lighting, camera-sensor data is used to estimate and approximate the environment's lighting conditions and dynamically added the appropriate shading to the objects in a scene \cite{apple_arlightestimate_nodate,apple_pointlight_nodate}.
+Depending on the scene and lighting conditions, this can be a computationally intensive process \cite{steed_constructing_2016} and -- depending on the resulting contrast -- lead to improved or worsened usability \cite{gabbard_effects_2006}.
+With automatic naturalistic lighting becoming increasingly available and common, e.g. through Apple's RealityKit API, it remains unclear whether this feature should be deployed by developers to enhance immersion -- especially since it could strongly affect energy consumption.
 
 \section{Problem statement}
 \label{sect:problem_statement}
 
-The project will investigate whether computationally intensive environment light probing and estimation can be avoided while still achieving comparable levels of immersion in augmented reality scenes.
-To achieve naturalistic virtual lighting, video from the AR system's camera feed has to continuously be probed at a high frequency to estimate the environment lighting conditions.
+The project will investigate whether there is a tradeoff between an increased energy impact of possibly computationally intensive environment light probing and estimation and higher levels of immersion in augmented reality scenes.
+To achieve naturalistic virtual lighting, video from the AR system's camera feed is continuously probed at a high frequency to estimate the environment lighting conditions.
 These estimates are required input data for the used shading algorithms.
-If users do not notice a difference between scenes with and without automatic naturalistic lighting, these processes can be disabled and the required resources can be freed.
 While there have been user-based studies evaluating visual characteristics of \gls{AR} objects, this particular aspect appears not to have been examined yet.
-
-There could be a trade-off between immersion and energy efficiency.
 
 \section{Problem}
 \label{sect:problem}
@@ -122,7 +118,7 @@ The purpose of this project is to illuminate the relationship between immersion 
 \section{Goal(s)}
 \label{sect:goals}
 
-The goal of this project is to propose and pre-test a method for exploring the relationship described above using a simple example application and an existing \gls{AR} \gls{API}.
+The goal of this project is to propose and pre-test a method for exploring the relationship between immersion and energy impact when deploying automatic naturalistic lighting using a simple example application and an existing \gls{AR} \gls{API}.
 
 \section{Tasks}
 \label{sect:tasks}
