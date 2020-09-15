@@ -11,16 +11,16 @@
 \input{lib/includes}
 \input{lib/acronyms}
 
-\title{Avoiding Multicast Acknowledgement Explosions in Multicast File Distribution Protocol}
+\title{Tradeoffs Between Immersion and Energy Consumption With Automatic Naturalistic Lighting in Augmented Reality}
 \author{
-        \textsc{Gerald Q. Maguire Jr.}
+        \textsc{Stefano Formicola}
             \qquad
-        \textsc{Anders Västberg}
+        \textsc{Christoph Albert Johns}
         \mbox{}\\
         \normalsize
-            \texttt{maguire}
+            \texttt{formico}
         \textbar{}
-            \texttt{vastberg}
+            \texttt{cajohns}
         \normalsize
             \texttt{@kth.se}
 }
@@ -52,122 +52,167 @@
 
 \selectlanguage{english}
 
-\todo[inline]{The length of this project proposal shall not be longer than 3-5 pages (with about 400 words – 600 words describing the project) excluding title, authors, milestone chart, and appendix.
-
-Save the document in a file with a name of the form:
-
-author1\textunderscore{}author2-Project\textunderscore{}Plan-YYYYMMDD
-
-Note: All sections must be descriptive and most will contain more than one sentence!
-}
-
 \section{Allocation of responsibilities}
 \label{sect:alloc_responsibilities}
-\todo[inline]{List authors and allocation of responsibilities. Answer the
-  question: Who will be involved and what are their responsibilities within
-  the project? For example, as shown above (for the authors) and below (for their responsibilities).}
 
-Gerald Maguire is responsible for writing the test programs, writing Sections 1 and 4 (Analysis) in the report, and presenting the project plan.
-
-Anders Västberg is responsible for collecting data using Wireshark, writing Sections 2-3, 5 in the report, and presenting the final project.
+Stefano Formicola is responsible for collecting data during the experiment, writing the sections regarding research questions, method, results, and discussion, and presenting the final project.
+Christoph Albert Johns is responsible for creating the test application, writing the abstract and sections regarding introduction and literature study, and presenting the project plan.
 
 
 \section{Organization}
 \label{sect:organization}
-\todo[inline]{One or more sentences. This describes how the project is to be organized. For example:}
 
-The project will be organized as a two-person project, building upon previously published work. Once the testbed and programs are ready data collection and analysis will proceed in parallel.
+The research project will be conducted as a two-person project on the basis of previously published work in the domain of virtual lighting in \gls{AR} scenes and user-based studies.
+
+The literature on which this project is based, primarily Jennett et al.\cite{jennett_measuring_2008}, will be used to gather data relative to participants' subjective experience, while Apple's Developer Tools will provide device-specific measures.
+Once the test application is ready to be used, data collection and analysis will proceed in parallel.
 
 
 \section{Background}
 \label{sect:background}
-\todo[inline]{Describe the background for chosen area that is going to be investigated. Write a short description of the area that is going to be investigated. It is a brief description of the necessary background knowledge of the problem area and for carrying out the project. For example:}
-This project builds on the idea of multicast file distribution described in RFC1235\cite{john_ioannidis_coherent_1991}. Clients report which blocks they are missing as a vector of bits, where missing blocks are indicated by a 1 bit. The length of each block is fixed; we will assume that it is 512 bytes for this project.
+The proposed research project builds on two main lines of research: prior works evaluating the relationship between visual characteristics of \gls{AR} objects and user experience (e.g. \cite{gabbard_effects_2006}) and research on the approximation of natural lighting conditions within virtual scenes in augmented reality (e.g. \cite{aittala_inverse_2010}).
+While there has been extensive research on the effect of design decisions on several aspects of user experience in digital games \cite{johnson_validation_2018} -- even in \gls{AR} games in a few cases (e.g. \cite{georgiou_development_2017}) -- the effect of lighting and more specifically automatic naturalistic lighting in \gls{AR} games seems not to have been examined yet.
+To achieve naturalistic lighting, camera-sensor data is used to estimate and approximate the environment's lighting conditions and dynamically added the appropriate shading to the objects in a scene \cite{apple_arlightestimate_nodate,apple_pointlight_nodate}.
+Depending on the scene and lighting conditions, this can be a computationally intensive process \cite{steed_constructing_2016}.
 
+With automatic naturalistic lighting becoming increasingly available and common, e.g. through Apple's RealityKit API \cite{apple_realitykit_nodate}, it remains unclear whether this feature should be deployed by developers to enhance immersion -- especially since it could strongly affect energy consumption.
 
+While several aspects of the experience when playing videos games in general and \gls{AR} games in particular have been defined and measured as well (see \cite{dey_systematic_2018, dunser_survey_2008} for overviews), we chose to investigate the effect of automatic naturalistic lighting on immersion because -- in contrast to, for example, \textit{flow} \cite{csikszentmihalyi_flow_1990} -- it is independent from optimal experience, which our method will not be able to produce, and very likely to relate to visual presentation and, therefore, lighting \cite{jennett_measuring_2008}.
+As Witmer and Singer argue, "scene realism" is one of the governing factors for presence in virtual environments \cite{witmer_measuring_1998}, which in turn affects how immersive a virtual environment appears \cite{jennett_measuring_2008}.
+We argue that automatic naturalistic lighting enhances this sense of realism and will therefore affect user's sense of immersion.
 
 \section{Problem statement}
 \label{sect:problem_statement}
-\todo[inline]{Describe the problem(s) that have been found in the area described in the background. Describe the problem area (in detail). For example:}
 
-The project will investigate how to avoid so-called “acknowledgement implosion” when distributing a file using multicast. If all of the nodes that successfully receive a packet were to acknowledge it, then the sender would receive a very large number of \glspl{ACK}, when it fact it is most interested in understanding which node did not receive the packet, hence to which node (or nodes) it should retransmit the packet.
+The project will propose and evaluate a method to investigate whether there is a tradeoff between an increased energy impact of possibly computationally intensive environment light probing and estimation and higher levels of immersion in augmented reality scenes.
+To achieve naturalistic virtual lighting, video from the AR system's camera feed is continuously probed at a high frequency to estimate the environment lighting conditions.
+These estimates are required input data for the used shading algorithms.
+While there have been user-based studies evaluating visual characteristics of \gls{AR} objects, this particular aspect appears not to have been examined yet.
 
 \section{Problem}
 \label{sect:problem}
 
-\todo[inline]{State a clear and concise problem that is going to be investigated.  Answer the question What is the real problem? - What is the problem or value proposition addressed by the project? – Ideally one sentence that is very concrete. For example:}
+If there is a tradeoff between immersion and energy consumption, avoiding continuous \gls{AR} light estimation could free resources for either alternative uses or extended battery life.
+If we find no tradeoff, developers and designers can be responsibly encouraged to implement features that enhance immersion.
+Energy consumption is measured in terms of \gls{CPU} usage as there is no dedicated \gls{GPU} in the mobile devices we will be testing, so the \gls{CPU} will handle all processing related to the \gls{AR} experience, and because CPU usage can very finely be measured on the test device in contrast to general energy consumption.
+That is why we will explore the following questions:
 
-Avoiding \gls{ACK} implosion is essential to enable multicast file distribution to scale to large numbers of receivers. What techniques can we use and how should they be used.
+\begin{description}
+    \item[RQ1.] Do users perceive a difference in immersion between enabled and disabled automatic naturalistic lighting?
+    \item[RQ1a.] If they perceive a difference, are the participants able to tell that lighting is the cause?
+    \item[RQ2.] How does enabling automatic naturalistic lighting affect \gls{CPU} usage?
+\end{description}
 
 \section{Hypothesis}
 \label{sect:hypothesis}
-\todo[inline]{State a hypothesis that you think would be the outcome of your investigation. Answer the question: What is your hypothesis? (Note that the hypothesis must be measurable to be confirmed or falsified. Moreover not all projects have hypothesis.).}
 
-Avoiding \gls{ACK} implosion can be performed by sending only \glspl{NACK}, rather than sending positive \glspl{ACK}.
+While we are aware that we will only be able to test the proposed method on a small scale, we hypothesize the following outcomes for a full-scale experiment:
+
+\begin{description}
+    \item[H1.] Users experience higher immersion levels when automatic naturalistic lighting is enabled.
+    \item[H1a.] Users are able to tell that the lighting was different between both runs of the experiment.
+    \item[H2.] \gls{CPU} usage is higher when automatic naturalistic lighting is enabled.
+\end{description}
+
+
 
 \section{Purpose}
 \label{sect:purpose}
-\todo[inline]{Explain the purpose(s) of your project / investigation (the expected deliverables from the project). Answer the question: Why do this project? (purpose/effect, i.e. – the purpose can be to save environment but the goal is to build a robot that can pick up trash.) Why would you carry out the project? For example:}
 
-The purpose is to present one or more techniques that can be used with multicast file distribution to prevent an \gls{ACK} implosion, thus fostering the use of multicast file distribution.
+The purpose of this project is to illuminate the relationship between immersion and energy impact in deploying advanced \gls{AR} features, thus empowering developers and designers to decide the most appropriate feature sets for their applications considering both user experience and sustainability aspects.
 
 \section{Goal(s)}
 \label{sect:goals}
-\todo[inline]{Explain the goal(s), objective(s), and/or the result(s) of your investigation. What are the expected deliverables/outcomes from the project? For example:}
 
-An analytic model showing the advantage of using only \glspl{NACK} versus positive \glspl{ACK} will be derived based on fitting curves to the experimental data for both forms of multicast file distribution. This model can be used to invalidate the hypothesis.
+The goal of this project is to propose and pre-test a method for exploring the relationship between immersion and energy impact when deploying automatic naturalistic lighting using a simple example application and an existing \gls{AR} \gls{API}.
 
 \section{Tasks}
 \label{sect:tasks}
-\todo[inline]{Describe the tasks and sub tasks that are necessary to complete the work. Grouped into a work breakdown structure. For example:}
 
-A simple multicast file server and a corresponding client will be implemented. A number of instances of the client will be executed with different starting times, but starting within \SI{30}{\second} of each other. Our test file will be a file of sufficient size to require more than \SI{30}{\second} to transmit when transported using \gls{UDP} datagrams via a \SI{10}{Mbps} wired Ethernet. This file will contain a series of pseudo-random bytes. The total number of datagrams transmitted by all of the nodes will be compared when using positive \glspl{ACK} and when only generating \glspl{NACK}. The number of clients will vary from 1 to 1025, in increments of 8 clients.
+An Augmented Reality mobile game will be designed and implemented, with the requirement of being a concentration game where players will have to end a turn in order to finish the game and win. \\For this purpose, we think the \textit{Memory} game, in which the player has to remember the order and color of different cards, can be a valid candidate for the experiment.
+
+The implementation will be done for iOS devices and developed on Apple's IDE Xcode with the ARKit and RealityKit frameworks. From the User Interface a toggle button will be useful to enable and disable the \emph{Automatic Naturalistic Lighting} feature for the different steps of the experiment. \\
+
+The experiment will consist in asking each subject to complete the game twice, with and without the light optimization feature. During each phase of the experiment a non-invasive data collection will be performed using Xcode Developer Tools' \emph{Instruments} for the computational load and battery's energy consumption, while a stopwatch will keep measure of the completion time of each task.
+
+Finally, we will measure subjects' game immersion and overall satisfaction in each task using the Immersive Experience Questionnaire proposed by Jennet et al.\cite{jennett_measuring_2008}.
 
 \section{Method}
 \label{sect:method}
-\todo[inline]{Describe and explain the research methods that will be used for the project. What research method (or methods) will be used? 
-Argue: why this is the most appropriate method or methods. For example:
-}
 
-The project will use the empirical method\cite{peter_bock_getting_2001}, as it is not clear to the authors that we can use an analytical method to produce an accurate model of the protocol in the available time period for this assignment (given the available resources).
+The project will use an empirical approach to test two different lighting options in an experiment setting and analyze the results using statistical methods.
+More specifically, we will modify an open-source \gls{AR} card-matching game \cite{cobb_maxxfrazerrealitykit-cardflip_2020} to include an option to enable and disable automatic naturalistic lighting using RealityKit's ".disableAREnvironmentLighting" render option.
+The sample game will be presented to participants on an Apple iPad in an indoor setting with controlled lighting conditions where participants will be asked to complete one round of the card-matching game for each of the two render options.
+The order of render options will be randomized to improve reliability.
+The purpose of the experiment will be stated to the participants only in general terms as "investigating immersion in \gls{AR} games" to avoid influencing their perception of the scene by directing their attention towards lighting.
+Participants will not be informed about the currently active render option for the same reason.
+The sample application has been chosen due to its simplicity in functionality and visual presentation as well as general familiarity, thereby reducing the risk of errors in use or unwanted effects on immersion due to scene complexity.
+To further negate this risk, participants will be given a trial with a third lighting condition: disabled automatic naturalistic lighting and an added point light above the scene.
+The first run will be started, after the participant indicates that he is ready for the experiment to begin.
+
+During each run, the IDE Xcode and more specifically its "Instruments" feature \cite{apple_xcode_nodate} will be used to log the test device's \gls{CPU} usage according to Apple's type definitions \cite{apple_system_nodate} in three second intervals.
+While there is a more general power metric that can be logged through the same application \cite{apple_energy_nodate-1}, this metric is discrete and very inelastic and was, therefore, not used.
+Additionally, the time to completion will be recorded from the moment the participants are handed the test device until the success message appears on screen.
+We discussed and decided not to have participants think aloud during their app usage to avoid unwanted effects on their experience and, thus, immersion \cite{van_den_haak_retrospective_2003}.
+After each run, participants will be asked to fill out the \gls{IEQ} (see \ref{sect:ieq}) to measure their levels of immersion dependent on the lighting treatment.
+After the second run, participants will additionally be asked about their general experience using the application and elaborate on any differences they noticed between both runs.
+While alternatives such as tracking eye movement or measuring reaction times could also be used to measure immersion \cite{jennett_measuring_2008}, we chose a questionnaire approach as the most economical option that still has satisfactory precedence in the literature \cite{boyle_engagement_2012}.
+If a participant mentions one of the words "light", "lighting", "color", or "contrast" while answering these questions, the difference in lighting is considered as noticed by the user.
+The expected duration of the experiment per participant is 30 minutes.
+The expected number of participants in the small-scale pre-study of this project is ten.
+
+After the above data has been successfully gathered, we will conduct a statistical analysis regarding the participants' immersion levels and the CPU usage between both lighting conditions using Student's two-sample \textit{t}-test to check for significant differences.
+We chose this measure as it can be considered quite robust even with small and extremely small ($ N \leq 5 $) sample sizes \cite{de_winter_using_2013}.
+If, however, the \textit{t}-test's assumption of normal distribution is not met, we will instead conduct a Mann-Whitney U-test to compare the two conditions following for example Nordin et al. \cite{nordin_attention_2013}.
+Additionally, we will report the results of the interview after the experiment.
+We are aware, however, that both the results of our analysis of variance as well as the results of our interviews should not be used to infer knowledge about either the effect of automatic naturalistic lighting on immersion or on energy consumption.
+Rather, the analysis is carried out in order to evaluate the chosen methods and to illustrate how such analysis should be done if the same study were carried out on a larger scale.
 
 \section{Milestone chart (time schedule)}
 \label{sect:milestones}
-\todo[inline]{Give a detailed schedule of how the project will be carried out. What is the project timeline and when will particularly meaningful points, referred to as milestones, be completed? What is the deliverable for each of these milestones? For example:}
 
-The project will start on 25 August and end at 00:00 on 30 August. There will be the following milestones and deliverables:
+The project started on 31 August 2020 and will end at 00:00 on 15 January 2021. There will be the following milestones and deliverables:
 
 \begin{description}
-\item{26 August} working multicast server and client
+\item{Sep 16} Finish the project plan and start of the Ethics \& Sustainability Document
 
-\item{27 August} prepare testbed and perform experimental runs for each of the
-  different numbers of clients to be completed (as per above) and stored in
-  two comma separated files (ACK.csv and NACK.csv) which each line consisting
-  of: number of clients, number of packets. Data will be collected using a
-  separate computer running Wireshark. Analysis of the data and development of
-  the analytic model will proceed in parallel with the data collection.
+\item {Sep 18} Presentation of the Ethics \& Sustainability of the proposed research
 
-\item{28 August} model completed based upon using the statistical package R to do the curve fitting to the experimental data
+\item {Oct 6} End of the Literature Study started at the beginning of the project, end of the implementation of the mobile application needed for the experiment, as well as the questionnaire asked to subjects
 
-\item{29 August} evaluation of model for additional data points to be check by new experimental runs to check that the model accurately produces the expected number of packets for the given number of clients for both \gls{ACK} and \gls{NACK} alternatives.
+\item {Oct 9} Presentation of the Research Plan and setup of the tools needed for the experiment
 
-\item{Before 30 August} submit final report (the report will have been written in parallel with each of the above steps)
+\item {Oct 12} The Experimentation and its data collection will start
+
+\item {Nov 20} All data will be collected
+
+\item {Nov 27} All data will be analyzed
+
+\item {Nov 30} First draft of the Final Report
+
+\item {Jan 15} Deliver of the final report, improved version of the first draft, and its presentation
+
 \end{description}
 
+A graphical representation of the project plan can be found in Appendix \ref{sect:gantt_chart}.
+
 \bibliography{II2202-proposal}
-%%\bibliographystyle{IEEEtran}
+% \bibliographystyle{IEEEtran}
 \bibliographystyle{myIEEEtran}
 
 \appendix
-\section{Optional appendix}
+\section{Appendix}
+\label{sect:appendix}
 
-\todo[inline]{In this section you can additional information that may be relevant to your reader, but is not an answer to any of the above points. Note that the Appendix or Appendices are Optional.}
+\subsection{Immersive Experience Questionnaire}
+\label{sect:ieq}
+\subfile{lib/ieq}
 
-The total word count is XXX , with XXX words excluding title, authors, milestone/schedule, references, and words in this sentence, i.e., it is a word count from “Allocation of responsibilities” to end of “Method” section.
-\todo[inline]{The value XXX does not include the instructions and the project plan should be handed in without instructions.}
+\subsection{Gantt Chart of the Project Milestones}
+\label{sect:gantt_chart}
 
-\section{Acronyms}
-\renewcommand{\glossarysection}[2][]{} %% skip the title
-\printglossary[type=\acronymtype,nonumberlist]
+\includegraphics[width=\textwidth]{imgs/project_milestones}
+
+\printglossary[type=\acronymtype, nonumberlist]
 \clearpage
 \end{document}

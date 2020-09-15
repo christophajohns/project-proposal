@@ -182,6 +182,8 @@ FUNCTION {default.name.latex.cmd}{ "" }
 % The default URL prefix.
 FUNCTION {default.name.url.prefix}{ "[Online]. Available:" }
 
+% The default URDATEL prefix.
+FUNCTION {default.name.urldate.prefix}{ "Accessed:" }
 
 % Other controls that cannot be accessed via IEEEtranBSTCTL entry type.
 
@@ -331,6 +333,7 @@ ENTRY
     title
     type
     url
+    urldate
     volume
     year
     yearfiled
@@ -345,6 +348,7 @@ ENTRY
     CTLname_format_string
     CTLname_latex_cmd
     CTLname_url_prefix
+    CTLname_urldate_prefix
   }
   {}
   { label }
@@ -390,7 +394,8 @@ STRINGS { bibinfo
           ALTinterwordstretchfactor
           name.format.string
           name.latex.cmd
-          name.url.prefix}
+          name.url.prefix
+          name.urldate.prefix}
 
 
 
@@ -411,6 +416,7 @@ FUNCTION {initialize.controls}
   default.name.format.string 'name.format.string :=
   default.name.latex.cmd 'name.latex.cmd :=
   default.name.url.prefix 'name.url.prefix :=
+  default.name.urldate.prefix 'name.urldate.prefix :=
 }
 
 
@@ -1957,6 +1963,28 @@ FUNCTION {format.url}
   if$
 }
 
+%% URLDATE
+
+FUNCTION {format.urldate}
+{ url empty$
+    {""}
+    { urldate empty$
+        { "" }
+        { this.to.prev.status
+          this.status.std
+          cap.yes  'status.cap :=
+          " [" name.urldate.prefix * " " * urldate * "]" *
+          punct.period 'this.status.punct :=
+          %use this line if you want the url to have a period after it before the date accessed
+          %punct.period 'prev.status.punct :=
+          space.normal 'this.status.space :=
+          quote.no 'this.status.quote :=
+        }
+      if$
+    }
+  if$
+}
+
 
 %% ISBN
 %% added by GQMJr
@@ -2100,6 +2128,7 @@ FUNCTION {electronic}
   format.isbn output		%% GQMJr
   format.note output
   format.url output
+  format.urldate output
   fin.entry
   empty.entry.warn
   if.url.std.interword.spacing
@@ -2227,6 +2256,7 @@ FUNCTION {misc}
   format.date output
   format.note output
   format.url output
+  format.urldate output
   fin.entry
   empty.entry.warn
   if.url.std.interword.spacing
@@ -2454,6 +2484,14 @@ FUNCTION {IEEEtranBSTCTL}
       'name.url.prefix :=
     }
   if$
+  %  TODO figure out a way to add in this control without exceeding the function length limit
+  %  CTLname_urldate_prefix
+  %  missing$
+  %    { skip$ }
+  %    { CTLname_urldate_prefix
+  %      'name.urldate.prefix :=
+  %    }
+  %  if$
 
 
   num.names.shown.with.forced.et.al max.num.names.before.forced.et.al >
