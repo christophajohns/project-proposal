@@ -1,0 +1,3 @@
+#!/bin/bash
+echo "Making the glossaries"
+docker run --rm --volume "`pwd`:/data" --user `id -u`:`id -g` --entrypoint=/usr/local/texlive/bin/x86_64-linux/makeglossaries II2202-proposal
