@@ -12,6 +12,7 @@ after_success:
 branches:
   except:
   - "/^paper-[0-9a-z\\-]*/"
+  - "development"
 deploy:
   provider: releases
   cleanup: false
