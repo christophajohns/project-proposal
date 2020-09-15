@@ -1,3 +1,8 @@
 #!/bin/bash
 echo "Generating the PDF"
-docker run --rm --volume "`pwd`:/data" --user `id -u`:`id -g` --entrypoint=/usr/local/texlive/bin/x86_64-linux/latexmk aggipp/arxiv-collector -pdf II2202-proposal.tex -o StefanoFormicola_ChristophAlbertJohns-Project_Plan-20200916.pdf
+docker run --rm --volume "`pwd`:/data" --user `id -u`:`id -g` blang/latex pdflatex II2202-proposal
+docker run --rm --volume "`pwd`:/data" --user `id -u`:`id -g` blang/latex bibtex II2202-proposal
+docker run --rm --volume "`pwd`:/data" --user `id -u`:`id -g` blang/latex makeglossaries II2202-proposal
+docker run --rm --volume "`pwd`:/data" --user `id -u`:`id -g` blang/latex pdflatex II2202-proposal
+docker run --rm --volume "`pwd`:/data" --user `id -u`:`id -g` blang/latex pdflatex II2202-proposal
+mv II2202-proposal.pdf StefanoFormicola_ChristophAlbertJohns-Project_Plan-20200916.pdf
