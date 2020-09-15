@@ -1,6 +1,5 @@
 #!/bin/bash
 mkdir rel
-source bin/glossaries
 echo "Start all compile jobs in parallel"
 source bin/word
 source bin/pdf
