@@ -66,8 +66,6 @@ The research project will be conducted as a two-person project on the basis of p
 Stefano Formicola is responsible for collecting data during the experiment, writing the sections regarding research questions, method, results, and discussion in the final report, and presenting the project plan.
 Christoph Albert Johns is responsible for providing the test application, writing the abstract and sections on introduction and literature study for the final report, as well as preparing and giving the final presentation.
 
-The research project will be conducted on the basis of previously published work in the domain of virtual lighting in \gls{AR} scenes and user-based studies.
-
 The related literature -- primarily Jennett et al.~\cite{jennett_measuring_2008} -- will provide guidance on how to gather data relating to participants' subjective experience and more specifically immersion, while Apple's Developer Tools will provide access to device-specific measures and more specifically energy consumption levels.
 Once the test application is ready to be used, data collection and analysis will proceed in parallel.
 
@@ -75,7 +73,8 @@ Once the test application is ready to be used, data collection and analysis will
 \section{Background}
 \label{sect:background}
 The proposed research project builds on two main lines of research: prior works evaluating the relationship between visual characteristics of \gls{AR} objects and user experience (e.g.~\cite{gabbard_effects_2006}) and research on the approximation of natural lighting conditions within virtual scenes in augmented reality (e.g.~\cite{aittala_inverse_2010}).
-While there has been extensive research on the effect of design decisions on several aspects of user experience in digital games~\cite{johnson_validation_2018} -- even in \gls{AR} games in a few cases (e.g.~\cite{georgiou_development_2017}) -- the effect of lighting and more specifically automatic naturalistic lighting in \gls{AR} games on immersion seems not to have been examined yet.
+While there has been extensive research on the effect of design decisions on several aspects of user experience in digital games~\cite{johnson_validation_2018} -- even in \gls{AR} games in a few instances (e.g.~\cite{georgiou_development_2017}) -- the effect of lighting and more specifically automatic naturalistic lighting in \gls{AR} games on immersion seems not to have been examined yet.
+
 To achieve naturalistic lighting, camera-sensor data is used to estimate and approximate the environment's lighting conditions and dynamically add the appropriate shading to the objects in a scene~\cite{apple_arlightestimate_nodate,apple_pointlight_nodate}.
 Depending on the scene and lighting conditions, this can be a computationally intensive process~\cite{steed_constructing_2016}.
 
@@ -83,23 +82,30 @@ With automatic naturalistic lighting becoming increasingly available and common,
 
 While several aspects of the experience when playing videos games in general and \gls{AR} games in particular have been defined and measured as well (see~\cite{dey_systematic_2018, dunser_survey_2008} for overviews), we chose to investigate the effect of automatic naturalistic lighting on immersion because -- in contrast to, for example, \textit{flow}~\cite{csikszentmihalyi_flow_1990} -- it is independent from optimal experience, which our method will not be able to produce, and very likely to relate to visual presentation and, therefore, lighting~\cite{jennett_measuring_2008}.
 As Witmer and Singer argue, "scene realism" is one of the governing factors for presence in virtual environments~\cite{witmer_measuring_1998}, which in turn affects how immersive a virtual environment appears~\cite{jennett_measuring_2008}.
-We argue that automatic naturalistic lighting enhances this sense of realism and will therefore affect users' sense of immersion.
+We reason that automatic naturalistic lighting enhances this sense of realism and will therefore affect users' sense of immersion.
 
 \section{Problem statement}
 \label{sect:problem_statement}
 
-The project will propose and evaluate a method to investigate whether there is a trade-off between an increased energy impact and higher levels of immersion through of possibly computationally intensive environment light probing and estimation in augmented reality scenes.
-To achieve naturalistic virtual lighting, video from the AR system's camera feed is continuously probed at a high frequency to estimate the environment lighting conditions~\cite{apple_adding_nodate}.
-These estimates are then used as input data for the used shading algorithms~\cite{apple_adding_nodate}.
-While there have been user-based studies evaluating visual characteristics of \gls{AR} objects, this particular aspect appears not to have been examined yet.
+The project will propose and evaluate a method to investigate whether there is a trade-off between an increased energy impact and higher levels of immersion through the use of possibly computationally intensive environment light probing and estimation in \gls{AR} scenes.
+To achieve naturalistic virtual lighting, video from the \gls{AR} system's camera feed is continuously probed at a high frequency to estimate the environment lighting conditions~\cite{apple_adding_nodate}.
+These estimates are then used as input data for the applied shading algorithms~\cite{apple_adding_nodate}.
+This could lead to increased scene realism at the cost of decreased energy efficiency.
+While there have been user-based studies evaluating visual characteristics of \gls{AR} objects, this particular aspect of automatic naturalistic lighting appears not to have been examined yet.
 
 \section{Problem}
 \label{sect:problem}
 
-If there is a trade-off between immersion and energy consumption, avoiding continuous \gls{AR} light estimation could free resources for either alternative uses or extended battery life.
+Examining the problem statement, two eventual outcomes of our project are possible:
+If we find a trade-off between immersion and energy consumption, designers and developers should be recommended to avoid continuous \gls{AR} light estimation in order to free resources for either alternative uses or to extend battery life.
 If we find no trade-off, developers and designers can be responsibly encouraged to implement features that enhance immersion.
-Immersion is measured in terms of the result of the \gls{IEQ}~\cite{jennett_measuring_2008}.
-Energy consumption is measured in terms of \gls{CPU} usage because there is no dedicated \gls{GPU} in the mobile devices we will be testing, so the \gls{CPU} will handle all processing related to the \gls{AR} experience, and because CPU usage can very finely be measured on the test device in contrast to general energy consumption.
+Each outcome could be considered a worthwhile contribution to the field of \gls{AR} and immersion research.
+
+In this project, immersion will be measured via the \gls{IEQ}~\cite{jennett_measuring_2008}.
+Energy consumption will be measured in terms of \gls{CPU} usage for two major reasons.
+First, because there is no dedicated \gls{GPU} in the mobile devices we will be testing, so the \gls{CPU} will handle all processing related to the \gls{AR} experience.
+And second, because CPU usage can very finely be measured on the test device in contrast to general energy consumption.
+
 Overall, we will explore the following questions:
 
 \begin{description}
@@ -111,25 +117,26 @@ Overall, we will explore the following questions:
 \section{Hypotheses}
 \label{sect:hypotheses}
 
-The main metrics we will collect for each of the two conditions, enabled and disabled automatic naturalistic lighting, are immersion level as measured through the \gls{IEQ} at the end of each run and \gls{CPU} usage over time as measured through Xcode's Developer Tools.
+The main metrics we will collect for each of the two conditions are immersion level and \gls{CPU} usage.
+Immersion will be measured once after each run through the \gls{IEQ}, \gls{CPU} usage will be measured over time through Xcode's Developer Tools.
 While we are aware that we will only be able to test the proposed method on a small scale, we hypothesize the following outcomes for a full-scale experiment.
 
 As described in section \ref{sect:background}, scene realism is positively correlated with presence and thereby immersion.
-That is why we expect the lighting condition that more closely matches the scene's natural environment to lead to higher levels of immersion:
+That is why we expect the lighting condition that more closely matches the scene's natural environment to lead to higher levels of immersion, resulting in the following hypothesis:
 
 \begin{description}
     \item[H1.] Users experience higher immersion levels when automatic naturalistic lighting is enabled.
 \end{description}
 
 Because the difference between both conditions lies in a salient visual feature which affects \gls{AR} objects' color and reflections, we expect not only the indirect measure of immersion as assessed through the \gls{IEQ} to be affected.
-We instead hypothesize that users recognize the difference between both conditions and are able to articulate how they differ without support from the examiner.
+We instead hypothesize that users will recognize the difference between both conditions and will be able to articulate how they differ without support from the examiner.
 This leads us to this hypothesis:
 
 \begin{description}
     \item[H1a.] Users are able to tell that the lighting was different between both runs of the experiment.
 \end{description}
 
-Finally, regarding the energy impact of naturalistic lighting, we expect the computationally intensive continuous probing and estimation of the \gls{AR} scenes environment lighting to lead to higher levels of \gls{CPU} usage and thereby negatively affect battery life:
+Finally, regarding the energy impact of naturalistic lighting, we expect the computationally intensive continuous probing and estimation of the \gls{AR} scenes environment lighting to lead to higher levels of overall \gls{CPU} usage:
 
 \begin{description}
     \item[H2.] \gls{CPU} usage is higher when automatic naturalistic lighting is enabled.
@@ -149,17 +156,16 @@ The expected deliverables and outcomes are: an example \gls{AR} application to m
 \section{Tasks}
 \label{sect:tasks}
 
-We will modify an existing \gls{AR} mobile game that tests the concentration of players to test immersion levels and energy consumption during usage.
-In this game, players will have to end a turn in order to finish the game and win.
-For this purpose, we think the game \textit{Memory}, in which players have to remember the order and color of different cards, can be a valid candidate for the experiment.
+We will modify an existing \gls{AR} mobile game based on player concentration as a sample application to test immersion levels and energy consumption during usage.
+Because of its popularity across countries and languages, we consider the game \textit{Memory} or \textit{Concentration}, in which players have to remember the order and color of different cards, a valid candidate for the experiment.
 
-The implementation will be done for iOS devices and developed on Apple's \gls{IDE} Xcode with the ARKit and RealityKit frameworks.
-The user interface will include a toggle button invisible to the player that enables and disables the \emph{Automatic Naturalistic Lighting} feature for the two runs of the experiment.
+The implementation will be done for iOS devices and developed on Apple's \gls{IDE} Xcode using the ARKit and RealityKit frameworks.
+The user interface will include a toggle button invisible to the player that enables and disables the automatic naturalistic lighting feature for the two runs of the experiment.
 
-The experiment will consist of asking each subject to complete the game twice, with and without the light optimization feature.
-During each phase of the experiment a non-invasive data collection will be performed using Xcode Developer Tools' \emph{Instruments} for the computational load and battery's energy consumption, while a stopwatch will keep measure of the completion time of each task.
+The experiment will consist of one three-minute session of gameplay for each condition, with and without the automatic naturalistic lighting, per subject.
+During each phase of the experiment a non-invasive data collection will be performed using Xcode Developer Tools' \emph{Instruments} to measure the computational load.
 
-Finally, we will measure subjects' game immersion and overall satisfaction in each task using the \gls{IEQ} proposed by Jennett et al.~\cite{jennett_measuring_2008}.
+Finally, we will measure subjects' immersion levels for each condition using the \gls{IEQ} proposed by Jennett et al.~\cite{jennett_measuring_2008}.
 
 \section{Method}
 \label{sect:method}
@@ -170,7 +176,7 @@ In the following, the targeted participant profile as well as study procedure, d
 \subsection{Participants}
 \label{sect:participants}
 
-Participants will be recruited via an opportunity sample and will, due to the difficulties and restrictions regarding gatherings of people during the COVID-19 period in which the research will be performed, mostly be international students living at KTH Main Campus between 19 and 30 years old.
+Participants will be recruited via an opportunity sample and will -- due to the difficulties and restrictions regarding gatherings of people during the COVID-19 pandemic -- mostly be international students living at KTH Main Campus between 19 and 30 years old.
 To limit the effect of novelty on immersion levels, participants should have had played a card-matching game similar to the sample game before.
 It is, however, not required that they have played a digital version of this game before taking part in the experiment.
 To further mitigate the effect of novelty, participants should have experienced an \gls{AR} scene on a mobile handheld device before.
@@ -186,8 +192,8 @@ The purpose of the experiment will be stated to the participants only in general
 Participants will not be informed about the currently active render option for the same reason.
 The sample application has been chosen due to its simplicity in functionality and visual presentation as well as general familiarity, thereby reducing the risk of errors in use or unwanted effects on immersion due to scene complexity or novelty.
 To further negate this risk and to address the concerns brought up by Jennett et al.~\cite{jennett_measuring_2008} regarding the effect of prior experience on immersion, participants will be given a trial period with a third lighting condition: disabled automatic naturalistic lighting and an added point light above the scene.
-Following Jennett et al.~\cite{jennett_measuring_2008}, participants will be told to complete the card matching game as fast as possible and with as few errors as possible, before they are interrupted after a three minutes.
-This should allow for a more challenging experience across player ability levels and, therefore, increase flow~\cite{csikszentmihalyi_flow_1990} and thereby general immersion levels as well as reduce overall variance in immersion~\cite{jennett_measuring_2008}.
+The goal stated to the participants to complete the game as fast as possible and with as few errors as possible follows the study design of Jennett et al.~\cite{jennett_measuring_2008}.
+It should allow for a more challenging experience across player ability levels and, therefore, increase flow~\cite{csikszentmihalyi_flow_1990} and thereby general immersion levels as well as reduce overall variance in immersion~\cite{jennett_measuring_2008}.
 The first run will be started, after the participant indicates that they are ready for the experiment to begin.
 After the experiment, participants will be debriefed and fully informed about the purpose of the study and given the opportunity to withdraw their consent.
 The expected duration of the experiment per participant is 30 minutes.
