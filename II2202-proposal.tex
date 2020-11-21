@@ -59,7 +59,14 @@ The preliminary results suggest that neither immersion nor \gls{CPU} usage are s
 %\clearpage
 
 \selectlanguage{english}
+\tableofcontents
 
+\section*{List of Acronyms and Abbreviations}
+\label{list-of-acronyms-and-abbreviations}
+\renewcommand{\glossarysection}[2][]{} %% skip the title
+\printglossary[type=\acronymtype, nonumberlist]
+
+\clearpage
 \section{Introduction}
 \label{sect:introduction}
 
