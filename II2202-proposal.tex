@@ -29,7 +29,7 @@
 
 \lhead{II2202, Fall 2020, Period 1-2}
 %% or \lhead{II2202, Fall 2020, Period 1}
-\chead{Research Plan}
+\chead{Draft Project Report}
 \rhead{\date{\today}}
 
 \makeatletter
@@ -42,13 +42,21 @@
 \maketitle
 
 
-% \begin{abstract}
-% \label{sec:abstract}
+\begin{abstract}
+\label{sec:abstract}
 
-% Your abstract here.
+This research project proposes and tests a method to investigate the effect of automatic naturalistic lighting on immersion and on energy consumption.
+A simple open-source card-matching game is modified to implement and control the corresponding rendering setting as provided by Apple's \gls{AR} API RealityKit and tested with a small sample of users.
+Users complete a short run of the game with automatic naturalistic lighting enabled and disabled in randomized order while overall \gls{CPU} usage is monitored and logged.
+After each run, immersion is measured through the \gls{IEQ}.
+A Mann-Whitney-U-test is used to test for significant differences in immersion and \gls{CPU} usage between both conditions.
+The pre-test shows that the proposed method is generally appropriate to test the hypothesized relationships.
+For a large-scale study, usability issues of the sample application should be resolved for more reliable measures or another application could be considered.
+Additionally, it should be considered whether the \gls{IEQ} should be replaced with a questionnaire that is more specific to \gls{AR} applications.
+The preliminary results suggest that neither immersion nor \gls{CPU} usage are significantly affected by automatic naturalistic lighting.
 
-% \end{abstract}
-%%\clearpage
+\end{abstract}
+%\clearpage
 
 \selectlanguage{english}
 
@@ -279,6 +287,5 @@ Furthermore, we will make use of the remote control features afforded by the Xco
 
 \includegraphics[width=\textwidth]{imgs/project_milestones}
 
-\printglossary[type=\acronymtype, nonumberlist]
 \clearpage
 \end{document}
