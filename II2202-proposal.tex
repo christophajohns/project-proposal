@@ -80,19 +80,27 @@ The preliminary results seem to suggest that neither immersion nor \gls{CPU} usa
 \section{Introduction}
 \label{sect:introduction}
 
-This research aims at illuminating the relationship between immersion and energy impact in deploying advanced \gls{AR} features, thus empowering developers and designers to decide the most appropriate feature sets for their applications considering both user experience and sustainability aspects.
-
 % What is the problem?
+In recent years, increasingly advanced features for \gls{AR} have become readily available to developers and designers in the form of easy-to-use \glsplural{API}.
+Apple's \gls{AR} \gls{API} RealityKit, for example, has enabled creators to easily add occlusion, video textures, and shared states to their \gls{AR} applications \cite{apple_realitykit_2020-1}.
+One of the especially notable features implemented by this \gls{API} has been real-time light estimation \cite{apple_arlightestimate_2020}.
+Applications that enable this feature gain access to information about a scene's lighting with every video frame that is delivered to the current session \cite{apple_arlightestimate_2020}.
+This information can then be used to apply dynamic shading to virtual objects matching the real-world lighting conditions \cite{apple_arlightestimate_2020}.
+Apple's RealityKit \gls{API} enables this feature by default and-–depending on the available hardware–-uses one or multiple probes in the scene to measure and estimate this so called "environment lighting".
+The resulting lighting estimate is then applied to the virtual objects in the scene \cite{apple_disablearenvironmentlighting_2020}.
+To achieve this naturalistic lighting, camera-sensor data is continuously processed and evaluated to estimate and approximate the environment's lighting conditions and dynamically add the appropriate shading to the objects in a scene~\cite{apple_arlightestimate_2020,apple_disablearenvironmentlighting_2020}.
+Depending on the scene and lighting conditions, this can be a computationally intensive process~\cite{steed_constructing_2016}.
+Enabling this feature could, therefore, lead to increased scene realism at the cost of decreased energy efficiency.
+This research aims at illuminating the relationship between immersion and energy impact in deploying automatic naturalistic lighting, thus empowering developers and designers to decide the most appropriate feature sets for their applications considering both user experience and sustainability aspects.
+While there have been user-based studies evaluating visual characteristics of \gls{AR} objects, this particular aspect of automatic naturalistic lighting appears not to have been examined yet.
 
-% Why is it interesting and important?
-
-% Why is it hard?
-
-% Why hasn't it been solved before?
-
-% What are key components of our approach and results?
 
 % What are the major contributions?
+Examining the problem statement, two eventual outcomes of our project are possible:
+If we find a trade-off between immersion and energy consumption, designers and developers should be recommended to avoid continuous \gls{AR} light estimation in order to free resources for either alternative uses or to extend battery life.
+If we find no trade-off, developers and designers can be responsibly encouraged to implement the feature in order to enhance overall immersion.
+Each outcome could be considered a worthwhile contribution to the field of \gls{AR} and immersion research.
+The expected deliverables for our project are: an example \gls{AR} application to measure immersion levels and monitor energy consumption; a pre-tested and evaluated method (setup, procedure, and analysis) for a full-scale study; an indication for the results of a full-scale study.
 
 \section{Method}
 \label{sect:method}
