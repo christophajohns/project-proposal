@@ -228,11 +228,31 @@ All visualizations were created using Seaborn 0.11.0.
 The immersion scores per question according to the \gls{IEQ} were calculated as ranging from a 1 for strongly disagree to a 5 for strongly agree.
 Scores for positively formulated questions were added, while scores for negatively formulated questions were subtracted to calculate the overall immersion score per participant and condition.
 Overall \gls{CPU} usage per timestamp was calculated by adding the \gls{CPU} usage percentages for all activity kinds with the same timestamp.
-Since the System CPU Percentage Engineering Type \cite{apple_system_2020} has a range from 0\% to 100\% multiplied by the number of \gls{CPU} cores in the given device, this can result in values exceeding 100\% (or 1 as in the formatting of our analysis).
+Since the System CPU Percentage Engineering Type~\cite{apple_system_2020} has a range from 0\% to 100\% multiplied by the number of \gls{CPU} cores in the given device, this can result in values exceeding 100\% (or 1 as in the formatting of our analysis).
 Since the goal of our analysis lies in evaluating whether the proposed method is suitable to be used in a full-scale study on the impact of automatic naturalistic lighting on immersion and energy consumption, the focus of our results similarly lies in our observations of the strengths and weaknesses of the method described in Section \ref{sect:method} rather than in the results of our statistical analysis.
 Nevertheless, we will report these first to highlight the method's strengths and weaknesses we observed afterwards.
 
+Contrary to our first hypothesis \textbf{H1}, overall immersion scores did not differ significantly between both conditions (Mann-Whitney $ U = 18.5 $, $ p = 0.241 $) with the mean overall immersion score for the automatic naturalistic lighting disabled condition even slightly exceeding the enabled condition with scores of 74.7 (SD = 7.3) and 76.0 (SD = 6.6) respectively (see Figure \ref{fig:immersion_plot}).
 
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{imgs/immersion_plot}
+    \caption{Immersion scores for the enabled and disabled conditions.}
+    \label{fig:immersion_plot}
+\end{figure}
+
+Regarding hypothesis \textbf{H1a}, there was no indication whether most participants in a full-scale study would notice a difference between both conditions as three of the seven participants in our pre-test stated they had not noticed any distinction.
+Within the group of participants that had answered to have noticed a difference, the immersion scores between automatic naturalistic lighting enabled and disabled did not differ significantly (Mann-Whitney $ U = 4.0 $, $ p = 0.155 $) with mean immersion scores of 76.3 (SD = 4.9) and 76.0 (SD = 11.4) respectively.
+Finally, contrary to our hypothesis \textbf{H2}, mean \gls{CPU} usage did not significantly differ between both conditions (Mann-Whitney $ U = 16.0 $, $ p = 0.405 $) with 61.8\% (SD = 6.7\%) mean overall \gls{CPU} usage in the disabled condition and 63.1\% (SD = 6.6\%) in the enabled condition.
+However, as can be seen in Figure \ref{fig:cpu_raw_plot}, the distributions of overall \gls{CPU} usage did appear different.
+The enabled condition resulted in a significantly higher overall \gls{CPU} usage even in our small pre-test (Mann-Whitney $ U = 53272.5 $, $ p < 0.05 $).
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{imgs/cpu_raw_plot}
+    \caption{Overall \gls{CPU} usage for the enabled and disabled conditions.}
+    \label{fig:cpu_raw_plot}
+\end{figure}
 
 \section{Discussion}
 \label{sect:discussion}
