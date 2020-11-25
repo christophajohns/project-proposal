@@ -223,21 +223,21 @@ Rather, the analysis is carried out in order to evaluate the chosen methods and 
 \section{Results}
 \label{sect:results}
 
+Our results can be divided into three parts: (1) the indicative results of our statistical analysis, (2) our own observations when developing and using the tools we devised, (3) our observations of the study participants, and (4) the feedback and comments of our study participants.
+Since the main contribution of this study lies in the tooling that we developed and pre-tested for a full-scale study, let us first let us at the secondary contribution: the indicative results of our statistical analysis.
+
 All statistical analysis was performed using Python 3.8.3 with the packages Pandas 1.1.4 and SciPy 1.5.4.
 All visualizations were created using Seaborn 0.11.0.
 The immersion scores per question according to the \gls{IEQ} were calculated as ranging from a 1 for strongly disagree to a 5 for strongly agree.
 Scores for positively formulated questions were added, while scores for negatively formulated questions were subtracted to calculate the overall immersion score per participant and condition.
 Overall \gls{CPU} usage per timestamp was calculated by adding the \gls{CPU} usage percentages for all activity kinds with the same timestamp.
 Since the System CPU Percentage Engineering Type~\cite{apple_system_2020} has a range from 0\% to 100\% multiplied by the number of \gls{CPU} cores in the given device, this can result in values exceeding 100\% (or 1 as in the formatting of our analysis).
-Since the goal of our analysis lies in evaluating whether the proposed method is suitable to be used in a full-scale study on the impact of automatic naturalistic lighting on immersion and energy consumption, the focus of our results similarly lies in our observations of the strengths and weaknesses of the method described in Section \ref{sect:method} rather than in the results of our statistical analysis.
-Nevertheless, we will report these first to highlight the method's strengths and weaknesses we observed afterwards.
-
 Contrary to our first hypothesis \textbf{H1}, overall immersion scores did not differ significantly between both conditions (Mann-Whitney $ U = 18.5 $, $ p = 0.241 $) with the mean overall immersion score for the automatic naturalistic lighting disabled condition even slightly exceeding the enabled condition with scores of 74.7 (SD = 7.3) and 76.0 (SD = 6.6) respectively (see Figure \ref{fig:immersion_plot}).
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.5\textwidth]{imgs/immersion_plot}
-    \caption{Immersion scores for the enabled and disabled conditions.}
+    \caption{Immersion scores for the disabled and enabled conditions in our small pre-test ($ N = 7 $).}
     \label{fig:immersion_plot}
 \end{figure}
 
@@ -250,9 +250,24 @@ The enabled condition resulted in a significantly higher overall \gls{CPU} usage
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.5\textwidth]{imgs/cpu_raw_plot}
-    \caption{Overall \gls{CPU} usage for the enabled and disabled conditions.}
+    \caption{Overall \gls{CPU} usage for the disabled and enabled conditions in our small pre-test ($ N = 7 $).}
     \label{fig:cpu_raw_plot}
 \end{figure}
+
+While conducting the pre-test, we experienced some difficulties with our chosen software.
+The modified sample application as well as the monitoring and logging software chosen had reliability issues that hindered the data gathering process.
+In one of the experiments, logging of the \gls{CPU} usage suddenly stopped after circa 1.5~min.
+While other data such as network events that were logged automatically by the software could still be accessed, \gls{CPU} data was non-retrievable.
+In another experiment, the logging software crashed after requesting to stop and save the recording.
+Here again, the \gls{CPU} data wan non-retrievable.
+The sample application, similarly, experienced some issues that seemed to relate to the Xcode \gls{IDE}.
+In one experiment, the application failed to exit through the software and had to be manually shut down
+Regarding less severe concerns, the sample application appeared to lack in terms of its feedback mechanisms.
+During multiple experiments, the probing phase (i.e. the phase during which the application gathers information about the environment, specifically to find a horizontal plane to use as an anchor for the virtual objects of the scene) which was indicated by an overlay with instructions to slowly move the device was exited without placing the virtual objects in an appropriate time frame.
+No inherent error or pattern to this behavior could be identified.
+This lead to multiple restarts of the application which delayed several runs of the experiment.
+The Google Forms questionnaire developed for data gathering did pose any significant challenges when used by the testers.
+The Jupyter notebook developed for data analysis, similarly, did not lead to any significant difficulties.
 
 \section{Discussion}
 \label{sect:discussion}
