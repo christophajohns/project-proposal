@@ -250,7 +250,7 @@ The enabled condition resulted in a significantly higher overall \gls{CPU} usage
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.5\textwidth]{imgs/cpu_raw_plot}
-    \caption{Overall \gls{CPU} usage for the disabled and enabled conditions in our small pre-test ($ N = 7 $). The overall \gls{CPU} usage can exceed 1 for devices with more than one \gls{CPU} core as specified in the corresponding data type definition~\cite{apple_system_2020}.}
+    \caption{Overall \gls{CPU} usage for the disabled and enabled conditions in our small pre-test ($ N = 7 $). The overall \gls{CPU} usage can exceed 1 for devices with more than one \gls{CPU} core as specified in the corresponding data type definition of the logging software~\cite{apple_system_2020}.}
     \label{fig:cpu_raw_plot}
 \end{figure}
 
@@ -261,7 +261,7 @@ While other data such as network events that were logged automatically by the so
 In another experiment, the logging software crashed after requesting to stop and save the recording.
 Here again, the \gls{CPU} data wan non-retrievable.
 The sample application, similarly, experienced some issues that seemed to relate to the Xcode \gls{IDE}.
-In one experiment, the application failed to exit through the software and had to be manually shut down
+In one experiment, the application failed to exit through the software and had to be manually shut down.
 Regarding less severe concerns, the sample application appeared to lack in terms of its feedback mechanisms.
 During multiple experiments, the probing phase (i.e. the phase during which the application gathers information about the environment, specifically to find a horizontal plane to use as an anchor for the virtual objects of the scene) which was indicated by an overlay with instructions to slowly move the device was exited without placing the virtual objects in an appropriate time frame.
 No inherent error or pattern to this behavior could be identified.
@@ -276,6 +276,18 @@ One participant even rested the device on a table to avoid having to hold it.
 It was, furthermore, noticeable that all participants moved the device during the trial phase of the experiment and some at the beginning of the first run, but all stopped moving the device altogether eventually.
 They instead remained in a fixed position once a comfortable posture was discovered and only interacted with the application by tapping the screen.
 One participant tried multiple different postures, positions, distances, and orientations during the trial phase but, just as the other participants, stopped this exploratory behavior completely once the first run started.
+Finally, multiple participants were briefly distracted during one or both runs of the experiment by noises or other people in the test environment.
+One participant attempted to start a conversation with the testers during one of the runs which was denied but still interrupted the run.
+
+Our discussions with the participants revealed that the reliability and usability issues we observed matched the participants' experiences.
+Multiple participants noted that they were irritated by the inconsistent scale and position of the virtual objects.
+Three participants stated unprompted that the device was uncomfortable to hold for the duration of the experiment due to its size and sharp edges.
+The sample application was generally accepted.
+Two participants noted that its simplicity might limit the potential immersion and that the lack of more complex objects and reflections might result in generally smaller differences in immersion between both runs.
+They, furthermore, suspected that this would make it harder for participants to notice any differences between both runs.
+The results would additionally be affected by the study design itself.
+Some participants noted that asking about the overall experience and any differences between both runs of the experiment would lead to biased answers since it provoked answers even if the participant would not have experienced significant differences.
+One participant suggested a third experiment variation in addition to the randomized order where the active render setting is not changed between both runs.
 
 \section{Discussion}
 \label{sect:discussion}
