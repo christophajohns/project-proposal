@@ -250,7 +250,7 @@ The enabled condition resulted in a significantly higher overall \gls{CPU} usage
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.5\textwidth]{imgs/cpu_raw_plot}
-    \caption{Overall \gls{CPU} usage for the disabled and enabled conditions in our small pre-test ($ N = 7 $).}
+    \caption{Overall \gls{CPU} usage for the disabled and enabled conditions in our small pre-test ($ N = 7 $). The overall \gls{CPU} usage can exceed 1 for devices with more than one \gls{CPU} core as specified in the corresponding data type definition~\cite{apple_system_2020}.}
     \label{fig:cpu_raw_plot}
 \end{figure}
 
@@ -268,6 +268,14 @@ No inherent error or pattern to this behavior could be identified.
 This lead to multiple restarts of the application which delayed several runs of the experiment.
 The Google Forms questionnaire developed for data gathering did pose any significant challenges when used by the testers.
 The Jupyter notebook developed for data analysis, similarly, did not lead to any significant difficulties.
+
+During the experiments, several participants experienced difficulties when interacting with the sample application.
+Since the application does support scaling and positioning during the setup phase for increased usability but does not save these settings, the virtual cards were displayed in the original scale and position after each successful game resulting in visible irritation by the participants.
+Additionally, the participants seemed to experience some discomfort holding the test device as multiple participants started frequently adjusting their grip during the second run of the experiment.
+One participant even rested the device on a table to avoid having to hold it.
+It was, furthermore, noticeable that all participants moved the device during the trial phase of the experiment and some at the beginning of the first run, but all stopped moving the device altogether eventually.
+They instead remained in a fixed position once a comfortable posture was discovered and only interacted with the application by tapping the screen.
+One participant tried multiple different postures, positions, distances, and orientations during the trial phase but, just as the other participants, stopped this exploratory behavior completely once the first run started.
 
 \section{Discussion}
 \label{sect:discussion}
