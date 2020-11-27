@@ -155,20 +155,20 @@ We reason that automatic naturalistic lighting enhances this sense of realism an
 \section{Method}
 \label{sect:method}
 
-We will modify an existing \gls{AR} mobile game based on player concentration as a sample application to test immersion levels and energy consumption during usage.
-Immersion will be measured through the \gls{IEQ}, \gls{CPU} usage will be measured over time through Xcode's Developer Tools.
-Because of its popularity across countries and languages, we consider the game \textit{Memory} or \textit{Concentration}, in which players have to remember the order and color of different cards, a valid candidate for the experiment.
+We modified an existing open source mobile \gls{AR} game for our experiment to test immersion levels and energy consumption during the usage.
+Players' immersion has been measured through the \gls{IEQ}, while Xcode's Developer Tools has been used to measure \gls{CPU} usage over time.
+Because of its popularity across countries and languages, we considered the game \textit{Memory} or \textit{Concentration}, in which players have to remember the order and color of different cards, a valid candidate for the experiment.
 
-The implementation will be done for iOS devices and developed on Apple's \gls{IDE} Xcode using the ARKit and RealityKit frameworks.
-The user interface will include a toggle button invisible to the player that enables and disables the automatic naturalistic lighting feature for the two runs of the experiment.
+The implementation has been done for iOS devices and developed on Apple's \gls{IDE} Xcode using the ARKit and RealityKit frameworks \gls{API}.
+The user interface included a toggle button invisible to the player but useful to enable and disable the automatic naturalistic lighting feature for the two runs of the experiment.
 
-The experiment will consist of one three-minute session of gameplay for each condition, with and without the automatic naturalistic lighting, per subject.
-During each phase of the experiment a non-invasive data collection will be performed using Xcode Developer Tools' \emph{Instruments} to measure the computational load.
+The experiment consisted of one three-minute session of gameplay for each condition, with and without the automatic naturalistic lighting, per subject.
+During each phase of the experiment a non-invasive data collection was performed using Xcode Developer Tools' \emph{Instruments} to measure the computational load.
 
-Finally, we will measure subjects' immersion levels for each condition using the \gls{IEQ} proposed by Jennett et al.~\cite{jennett_measuring_2008}.
+Finally, we measured subjects' immersion levels for each condition using the \gls{IEQ} proposed by Jennett et al.~\cite{jennett_measuring_2008}.
 
-The project will use a within-subjects design to empirically test two different lighting conditions in an experiment setting and analyze the results using statistical methods.
-In the following, the targeted participant profile as well as study procedure, data collection, and data analysis will be described.
+The project used a within-subjects design to empirically test two different lighting conditions in an experiment setting and analyze the results using statistical methods.
+In the following, the targeted participant profile, data collection, analysis and study procedure are described.
 
 \subsection{Participants}
 \label{sect:participants}
@@ -181,44 +181,46 @@ Overall, seven participants took part in this study.
 They had an average age of 24.7 (SD = 1.60), ranging from 23 to 28 years.
 All seven participants were male.
 
-\subsection{Procedure}
-\label{sect:procedure}
-
-We will modify an open-source \gls{AR} card-matching game~\cite{cobb_maxxfrazerrealitykit-cardflip_2020} to include an option to enable and disable automatic naturalistic lighting using RealityKit's \textit{.disableAREnvironmentLighting} render option for a repeated measures study design.
-The sample game will be presented to participants on an Apple iPad in an indoor setting with controlled lighting where participants will be asked to complete as many rounds of the card-matching game for each of the two lighting conditions as they can, before they are interrupted after three minutes and the render option is changed for the second run.
-The order of render options will be randomized to improve reliability.
-The purpose of the experiment will be stated to the participants only in general terms as "investigating immersion in \gls{AR} games" to avoid influencing their perception of the scene by directing their attention towards lighting.
-Participants will not be informed about the currently active render option for the same reason.
-The sample application has been chosen due to its simplicity in functionality and visual presentation as well as general familiarity, thereby reducing the risk of errors in use or unwanted effects on immersion due to scene complexity or novelty.
-To further negate this risk and to address the concerns brought up by Jennett et al.~\cite{jennett_measuring_2008} regarding the effect of prior experience on immersion, participants will be given a trial period with a third lighting condition: disabled automatic naturalistic lighting and an added point light above the scene.
-The goal stated to the participants to complete the game as fast as possible and with as few errors as possible follows the study design of Jennett et al.~\cite{jennett_measuring_2008}.
-It should allow for a more challenging experience across player ability levels and, therefore, increase flow~\cite{csikszentmihalyi_flow_1990} and thereby general immersion levels as well as reduce overall variance in immersion~\cite{jennett_measuring_2008}.
-The first run will be started, after the participant indicates that they are ready for the experiment to begin.
-After the experiment, participants will be debriefed and fully informed about the purpose of the study and given the opportunity to withdraw their consent.
-The expected duration of the experiment per participant is 30 minutes.
-
 \subsection{Data collection}
 \label{sect:data_collection}
 
-During each run of the experiment, the \gls{IDE} Xcode and more specifically its \textit{Instruments} feature~\cite{apple_xcode_2020} will be used to log the test device's \gls{CPU} usage according to Apple's type definitions~\cite{apple_system_2020} in three second intervals.
-While there is a more general power metric that can be logged through the same application~\cite{apple_energy_2020-1}, that metric is discrete and inelastic towards enabled and disabled automatic naturalistic lighting and was, therefore, not used.
+During each run of the experiment, the \gls{IDE} Xcode and more specifically its \textit{Instruments} feature~\cite{apple_xcode_2020} have been used to log the test device's \gls{CPU} usage in three second intervals, according to Apple's type definitions~\cite{apple_system_2020}.
+While there exist a more general power metric that can be logged through the same application~\cite{apple_energy_2020-1}, that metric is discrete and inelastic towards enabled and disabled automatic naturalistic lighting and was, therefore, not used.
 We discussed and decided not to have participants think aloud during their app usage to avoid unwanted effects on their experience and, thus, immersion~\cite{van_den_haak_retrospective_2003}.
-After each run, participants will be asked to fill out the \gls{IEQ} (see Appendix \ref{sect:ieq}) to measure their levels of immersion dependent on the lighting treatment.
-After the second run, participants will additionally be asked about their general experience using the application and to elaborate on any differences they noticed between both runs.
-While alternatives such as tracking eye movement or measuring reaction times could also be used to measure immersion~\cite{jennett_measuring_2008}, we chose a questionnaire approach as the most economical option that still has satisfactory precedence in literature~\cite{boyle_engagement_2012}.
-If a participant mentions one of the words "light", "lighting", "color", or "contrast" while answering these questions, the difference in lighting is considered as noticed by the user.
+After each run, participants were asked to fill out the \gls{IEQ} (see Appendix \ref{sect:ieq}) to measure their levels of immersion dependent on the lighting treatment.
+After the second run, participants have been additionally asked about their general experience using the application and to elaborate on any differences they noticed between both runs.
+While alternatives such as tracking eye movement or measuring reaction times could also have been used to measure immersion~\cite{jennett_measuring_2008}, we chose a questionnaire approach as the most economical option that still has satisfactory precedence in literature~\cite{boyle_engagement_2012}.
+If a participant mentioned one of the words "light", "lighting", "color", or "contrast" while answering these questions, the difference in lighting was considered as noticed by the user.
 
 \subsection{Data analysis}
 \label{sect:data_analysis}
 
-After the above data has been successfully gathered, we will conduct a statistical analysis regarding the participants' immersion levels and the \gls{CPU} usage between both lighting conditions using Student's two-sample \textit{t}-test in R to check for significant differences.
+After the above data have been successfully gathered, we conducted a statistical analysis regarding the participants' immersion levels and the \gls{CPU} usage between both lighting conditions using Student's two-sample \textit{t}-test in Python to check for significant differences.
 We chose this measure as it can be considered quite robust even with small and extremely small ($ N \leq 5 $) sample sizes~\cite{de_winter_using_2013} and because it was used by Jennett et al. in their original experiments~\cite{jennett_measuring_2008}.
-If, however, the \textit{t}-test's assumption of normal distribution is not met, we will instead conduct a Mann-Whitney U-test to compare the two conditions following the example of Nordin et al.~\cite{nordin_attention_2013} in their immersion experiments.
-Additionally, we will report the results of the interview.
+However, the \textit{t}-test's assumption of normal distribution was not met, therefore we proceeded conducting a Mann-Whitney U-test to compare the two conditions following the example of Nordin et al.~\cite{nordin_attention_2013} in their immersion experiments.
+Additionally, we reported the results of the interview.
 
-We are aware that both the results of our analysis of variance and the results of our interviews should not be used to infer knowledge about either the effect of automatic naturalistic lighting on immersion or on energy consumption.
-Rather, the analysis is carried out in order to evaluate the chosen methods and to illustrate how such analysis should be done if the same study were carried out on a larger scale.
+We were aware that both the results of our analysis of variance and the of our interviews could not be used to infer knowledge about either the effect of automatic naturalistic lighting on immersion or energy consumption.
+Rather, the analysis was carried out in order to evaluate the chosen methods and to illustrate how such analysis should have been done if the same study was carried out on a larger scale.
 
+\subsection{Procedure}
+\label{sect:procedure}
+
+We modified an open-source \gls{AR} card-matching game~\cite{cobb_maxxfrazerrealitykit-cardflip_2020} to include an option to enable and disable automatic naturalistic lighting using RealityKit's \textit{.disableAREnvironmentLighting} render option for a repeated measures study design.
+
+Before the start of the experiment participants have been informed about the collection of data regarding the device activity and their questionnaire answers after both runs of the game, moreover their right to withdraw from the experiment at any time was clarified as well as the possibility to ask the deletion of data. The purpose of the experiment has been stated to the participants only in general terms as "investigating immersion in \gls{AR} games" to avoid influencing their perception of the scene by directing their attention towards lighting. 
+They were asked to fill in a Google Forms document their name and surname followed by the date of the experiment and check the boxes corresponding to their willing to share the data and confirming they have been informed of the above stated experiment details.
+
+The game has been presented to participants on an Apple iPad in an indoor setting with controlled lighting where participants were asked to complete as many rounds of the card-matching game for each of the two lighting conditions as they could, before they were interrupted after three minutes and the render option changed for the second run.
+The order of render options has been randomized (through a number generator) to improve reliability and participants were not informed about the currently active render option to avoid biases.
+
+The sample application was chosen due to its simplicity in functionality and visual presentation as well as general familiarity, thereby reducing the risk of errors in use or unwanted effects on immersion due to scene complexity or novelty.
+To further negate this risk and to address the concerns brought up by Jennett et al.~\cite{jennett_measuring_2008} regarding the effect of prior experience on immersion, participants were given a trial period with a third lighting condition: disabled automatic naturalistic lighting and an added point light above the scene.
+The goal stated to the participants was to complete the game as fast as possible and with as few errors as possible, following the study design of Jennett et al.~\cite{jennett_measuring_2008}.
+This should have allowed for a more challenging experience across player ability levels and, therefore, increased flow~\cite{csikszentmihalyi_flow_1990} and thereby general immersion levels as well as reduced overall variance in immersion~\cite{jennett_measuring_2008}.
+The first run were considered started after the participants indicated that they were ready for the experiment to begin.
+After the experiment, participants were debriefed and fully informed about the purpose of the study and given the opportunity to withdraw their consent.
+The duration of the experiment per participant was 20 minutes.
 
 \section{Results}
 \label{sect:results}
