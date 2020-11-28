@@ -195,9 +195,9 @@ If a participant mentioned one of the words "light", "lighting", "color", or "co
 \subsection{Data analysis}
 \label{sect:data_analysis}
 
-After the above data have been successfully gathered, we conducted a statistical analysis regarding the participants' immersion levels and the \gls{CPU} usage between both lighting conditions using Student's two-sample \textit{t}-test in Python to check for significant differences.
-We chose this measure as it can be considered quite robust even with small and extremely small ($ N \leq 5 $) sample sizes~\cite{de_winter_using_2013} and because it was used by Jennett et al. in their original experiments~\cite{jennett_measuring_2008}.
-However, the \textit{t}-test's assumption of normal distribution was not met, therefore we proceeded conducting a Mann-Whitney U-test to compare the two conditions following the example of Nordin et al.~\cite{nordin_attention_2013} in their immersion experiments.
+After the above data have been successfully gathered, we used a Jupyter Notebook with Python to conduct a statistical analysis regarding the participants' immersion levels and the \gls{CPU} usage between both lighting conditions using the Mann-Whitney U-test to check for significant differences.
+We chose this measure as it can be considered quite robust even with small and extremely small ($ N \leq 5 $) sample sizes~\cite{de_winter_using_2013} and because it was used by Jennett et al. in their original experiments~\cite{jennett_measuring_2008} as an alternative when results don't follow a normal distribution.
+However, the Student's \textit{t}-test's assumption in case of a normal distribution would have given the same results of the Mann-Whitney U-test, as used also by Nordin et al.~\cite{nordin_attention_2013} in their immersion experiments.
 Additionally, we reported the results of the interview.
 
 We were aware that both the results of our analysis of variance and the of our interviews could not be used to infer knowledge about either the effect of automatic naturalistic lighting on immersion or energy consumption.
