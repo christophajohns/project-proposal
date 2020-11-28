@@ -252,7 +252,7 @@ The enabled condition resulted in a significantly higher overall \gls{CPU} usage
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.5\textwidth]{imgs/cpu_raw_plot}
-    \caption{Overall \gls{CPU} usage for the disabled and enabled conditions in our small pre-test ($ N = 7 $). The overall \gls{CPU} usage can exceed 1 for devices with more than one \gls{CPU} core as specified in the corresponding data type definition of the logging software~\cite{apple_system_2020}.}
+    \caption{Overall \gls{CPU} usage for the disabled and enabled conditions in our small pre-test ($ N = 7 $). The overall \gls{CPU} usage can exceed 1 for devices with more than one \gls{CPU} core (range from 0 to number of cores) as specified in the corresponding data type definition of the logging software~\cite{apple_system_2020}.}
     \label{fig:cpu_raw_plot}
 \end{figure}
 
@@ -294,7 +294,38 @@ One participant suggested a third experiment variation in addition to the random
 \section{Discussion}
 \label{sect:discussion}
 
-Some text about discussion here.
+Since the goal of this project is to develop and evaluate a method and the corresponding tools for a full-scale study on the effects of automatic naturalistic lighting on immersion and energy consumption, it needs to be established how well the proposed method is able to provide insight into both relationships and which shortcomings still need to be overcome.
+For this, the observations and comments above need to be consolidated into actionable insights.
+In the following, the two major phases of the envisioned full-scale study will be evaluated separately in regards to how well the developed method and tools are suited to meet each step's requirements: (1) data gathering and (2) data analysis.
+
+The data gathering process as proposed makes use of the sample application developed in this project, the associated logging software, and the Google Forms form that includes the \gls{IEQ}.
+As described in Section \ref{sect:method}, these tools are used in a within-subjects study design with a trial run and two test conditions in randomized order pre-tested with a small convenience sample.
+While the proposed method was generally appropriate to gather the required data, each of the tools as well as the study design itself has several weaknesses that should be addressed before a full-scale study is conducted.
+First, regarding the study design, we noticed some inconsistencies in how the experiment was run that might affect the results in a full-scale study.
+
+% Weaknesses:
+% - no consistent room => lab room
+% - IEQ answers might have been affected by tester presence => leave lab
+% - app crashes => debug and improve, possibly switch framework
+% - Instruments crashes => research different logging software or consider different framework
+% - irritation of participants through use of just one instead of two forms => split
+% - test for normality and consequent Student's t-test missing from notebook => include
+% - too many disturbances => lab room
+% - ill defined "noticed difference" condition => re-define and include in form
+% - application might have been too simple, especially visually => consider more complex forms and materials
+% - app usability (e.g. position and scale) => debug and improve
+% - device not comfortable => consider different device (e.g. phone)
+% - no placebo condition to further control for biases => include placebo
+% - CPU usage not exactly energy consumption, correlated but not same => research different measures, include test for correlation with abstract energy consumption
+% - CPU usage not exactly appropriate since GPU typically handles rendering => research different measures or frameworks
+% - CPU usage not only due to application (background services) => try to minimize background services further or research how to test only test application further (but also: real-life situation)
+% - unclear communication of task to participants => script/protocol to be read out loud or read by participant, e.g. included in form
+% - setup requires tester to manually adjust settings in app UI (error-prone) => include in code, write script for automation
+% - may be uneconomical since needs to be tested with same device in same conditions for many participants => consider splitting research into artificial test without participants for CPU usage, provide incentives
+% - may be fast outdated because of the fast-changing API and underlying technology in camera or chip (e.g. Lidar or A14) => do cross-device, cross-API-versions test to see whether device- and API-version-dependent 
+
+% Future development:
+% - full-scale study with proposed measures
 
 
 
