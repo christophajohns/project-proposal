@@ -301,32 +301,53 @@ In the following, the two major phases of the envisioned full-scale study will b
 The data gathering process as proposed makes use of the sample application developed in this project, the associated logging software, and the Google Forms form that includes the \gls{IEQ}.
 As described in Section \ref{sect:method}, these tools are used in a within-subjects study design with a trial run and two test conditions in randomized order pre-tested with a small convenience sample.
 While the proposed method was generally appropriate to gather the required data, each of the tools as well as the study design itself has several weaknesses that should be addressed before a full-scale study is conducted.
-First, regarding the study design, we noticed some inconsistencies in how the experiment was run that might affect the results in a full-scale study.
+First, regarding the general setup, we noticed some inconsistencies in how the experiment was run that might affect the results in a full-scale study.
+Since we did not have access to one consistent room with minimal distractions for our testing, we conducted the pre-test in multiple environments with various lighting conditions and possible disturbances.
+This was especially noticeable when multiple participants were in the same room or when a common room was used.
+The distractions caused by these surroundings and the inconsistencies in the data that might be caused by the different lighting conditions should be avoided in a full-scale study by using a consistent laboratory room with controlled lighting and minimal distractions.
+Additionally, we experienced some difficulties with the sample application and the runs of our experiment.
+As some participants noted, the test device was rather uncomfortable to hold for longer periods of time which might have affected the general lack of movement we observed.
+In an \gls{AR} application, it could be argued that users should move to immerse themselves in the experience provided which our sample application failed to motivate.
+Instead, most participants stood still for the entire experiment which might have lead to generally too low immersion levels to find a difference between both tested conditions.
+Furthermore, we experienced difficulties regarding the application's reliability and stability, as it as well as the associated logging tool crashed twice at such a crucial moment that the experiments' data was non-retrievable.
+In addition, some less severe usability concerns should be considered before using the sample application in larger setting.
+The application currently requires the tester to manually adjust the render setting (i.e. enabling or disabling automatic naturalistic lighting) which can easily lead to errors and thereby faulty data.
+It also does not preserve state about the position and scale chosen by the user which further demotivates movement.
+Moreover, as one participant noted, the virtual scene might be lacking in complexity resulting in a less noticeable difference between both tested conditions.
+While it could be argued that the game's visual complexity is a realistic representation of the complexity of most current \gls{AR} applications, this claim is yet to be supported by additional research.
+To conduct the experiment in a full-scale study, these issues should be addressed and fixed, for example by considering a different device (e.g. a phone), a different framework (e.g. Unity), or an adjusted application (e.g. using different forms and materials in the virtual scene).
 
-% Weaknesses:
-% - no consistent room => lab room
-% - IEQ answers might have been affected by tester presence => leave lab
-% - app crashes => debug and improve, possibly switch framework
-% - Instruments crashes => research different logging software or consider different framework
-% - irritation of participants through use of just one instead of two forms => split
-% - test for normality and consequent Student's t-test missing from notebook => include
-% - too many disturbances => lab room
-% - ill defined "noticed difference" condition => re-define and include in form
-% - application might have been too simple, especially visually => consider more complex forms and materials
-% - app usability (e.g. position and scale) => debug and improve
-% - device not comfortable => consider different device (e.g. phone)
-% - no placebo condition to further control for biases => include placebo
-% - CPU usage not exactly energy consumption, correlated but not same => research different measures, include test for correlation with abstract energy consumption
-% - CPU usage not exactly appropriate since GPU typically handles rendering => research different measures or frameworks
-% - CPU usage not only due to application (background services) => try to minimize background services further or research how to test only test application further (but also: real-life situation)
-% - unclear communication of task to participants => script/protocol to be read out loud or read by participant, e.g. included in form
-% - setup requires tester to manually adjust settings in app UI (error-prone) => include in code, write script for automation
-% - may be uneconomical since needs to be tested with same device in same conditions for many participants => consider splitting research into artificial test without participants for CPU usage, provide incentives
-% - may be fast outdated because of the fast-changing API and underlying technology in camera or chip (e.g. Lidar or A14) => do cross-device, cross-API-versions test to see whether device- and API-version-dependent 
+Regarding the questionnaire that accompanied the experiment, there are four observations that we want to highlight here.
+First, we noticed that multiple participants were slightly irritated by the fact that we used one Google Forms form for all information regarding one experiment (incl. the consent form and data to be filled by the tester).
+This interrupted the flow of the experiment and can easily be avoided by splitting the questionnaire into one to be filled by the participant and one to be filled by the tester which can be joined by an anonymous and random ID.
+Second, we observed that some participants might have been affected in their answers to the \gls{IEQ} by our presence in the room when they filled the questionnaire.
+Two participants, for example, asked for an explanation of one of the questions of the \gls{IEQ}.
+In order to not affect the results of the questionnaire, the participants should answer the questions to the best of their knowledge and understanding.
+One simple way to mitigate this problem would therefore be to leave the room where the experiment is being conducted for duration of the questionnaire.
+Third, we became aware of the fact that our definition for the question whether a participant had noticed a difference between both tested conditions was too wide and therefore might have lead to some inconsistencies in understanding.
+This might have influenced the results of our analysis regarding hypothesis \textbf{H1a}, since we did not find any clear indication whether users would or would not notice the difference in lighting.
+For a full-scale study, this question should be further defined and included in the form to be answered by the participant.
+Finally, and related to the point above, the choice of the \gls{IEQ} might want to be re-considered since some of the questions (e.g. To what extent was your sense of being in the game environment stronger than your sense of being the real world?) are less suited for an \gls{AR} game.
+This might be one of the reasons, why our preliminary results regarding \textbf{H1} seem to indicate no significant effect of automatic naturalistic lighting on overall immersion.
+Since there are alternatives available that are in some cases even developed specifically for \gls{AR} applications~\cite{georgiou_development_2017}, these should be reviewed before conducting a full-scale study based on the \gls{IEQ}.
 
-% Future development:
-% - full-scale study with proposed measures
+In regard to the overall study design, the lack of a clear script or protocol to explain the experiment in detail and consistently to each participant became clear when multiple participants stopped after their first completed run of the sample game during the first tested condition.
+Despite the explanations given by the testers, they were unaware that their goal was to complete as many runs of the game with as few errors as possible within the given time frame.
+This shows that the explanations were unable to provide the participants with the necessary information about their task during the experiment.
+For a full-scale study, a clear protocol to be read aloud by the tester should be considered.
+Moreover, as one participant pointed out, the inclusion of a placebo condition might be an appropriate addition to further control bias.
+While the randomization is well suited to reduce the effect of order on the overall immersion scores, introducing a condition where participants are shown the same lighting in both conditions could reveal further information about the effect that simply asking for immersion twice and asking for difference at the end of the experiment might have on the results.
 
+This brings us to the second phase of a potential full-scale experiment, the data analysis.
+While the Jupyter notebook developed during this project is generally suitable to process and analyze the gathered data, some of the decisions about the analyzed measures and the meaning that can be derived from their results can be put into question.
+One minor feature that is missing from the notebook at this stage is a test for normality and the subsequent Student's t-test that might be able to provide some additional insight into the effect of automatic naturalistic lighting on immersion and \gls{CPU} usage.
+On a more severe note, it can be argued that \gls{CPU} usage is unsuitable to measure energy consumption since it is not examined both truly correlate, since, typically, the \gls{GPU} handles most computation for rendering, and since overall \gls{CPU} usage is not only affected by the sample application.
+Multiple background services might mask the effect of automatic naturalistic lighting on the \gls{CPU}.
+While the measure was chosen, among other reasons, because of its granular logging possibilities and while it seems to be affected by the rendering condition in our preliminary testing (see the analysis regarding \textbf{H2} in Section \ref{sect:results}), these concerns should be addressed by further researching and considering alternative measures and frameworks as well as testing those measures chosen for their correlation with more direct but less granular measures of energy consumption like Instrument's Abstract Power Measurement~\cite{apple_abstract_2020}.
+Finally, it should be reviewed whether the study design and tooling provided by this project is economical enough for a full-scale study.
+Since the setup requirements are quite high--a consistently available, non-distracting room with controlled lighting, a consistent test device, at least one tester per participant, and both a questionnaire as well as an experiment-- and since the results might be fast outdated due to the fast-changing API and underlying technology (e.g. the camera or processor), a full-scale study might consider splitting off or re-designing parts of the study, for example by testing the effect of automatic naturalistic lighting on energy consumption in a separate, more controlled study without participants or by including multiple devices and API versions in the study to test for their effect on the results.
+
+Overall, the proposed method and tools are suitable to conduct a full-scale study on the effects of automatic naturalistic lighting on immersion and energy consumption, but each of the parts should carefully be considered, evaluated, and possibly modified before investing heavily in such an endeavor.
 
 
 \bibliography{II2202-proposal}
