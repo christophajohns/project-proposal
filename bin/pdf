@@ -5,4 +5,4 @@ docker run --rm --volume "`pwd`:/data" --user `id -u`:`id -g` blang/latex bibtex
 docker run --rm --volume "`pwd`:/data" --user `id -u`:`id -g` blang/latex makeglossaries II2202-proposal
 docker run --rm --volume "`pwd`:/data" --user `id -u`:`id -g` blang/latex pdflatex II2202-proposal
 docker run --rm --volume "`pwd`:/data" --user `id -u`:`id -g` blang/latex pdflatex II2202-proposal
-mv II2202-proposal.pdf StefanoFormicola_ChristophAlbertJohns-Project_Plan-20200916.pdf
+mv II2202-proposal.pdf StefanoFormicola_ChristophAlbertJohns-Draft_Report-20201130.pdf
