@@ -142,9 +142,16 @@ We propose a within-subject design to test the effects of the two conditions \te
 For this, we modified an existing open source mobile \gls{AR} game and prepared a form that includes the \gls{IEQ}, while Xcode's Developer Tools' \textit{Instruments} were used to measure \gls{CPU} usage over time.
 Because of its popularity across countries and languages, we considered the game \textit{Memory} or \textit{Concentration}, in which players have to remember the order and color of different cards, a valid candidate for the experiment.
 The implementation was done for iOS devices and developed on Apple's \gls{IDE} Xcode using the ARKit and RealityKit \glsplural{API}.
-The user interface included a toggle button hidden from the player to enable and disable the automatic naturalistic lighting feature for the two runs of the experiment.
+The user interface included a toggle button hidden from the player to enable and disable the automatic naturalistic lighting feature for the two runs of the experiment (see Figure \ref{fig:sample_app_comparison} for a comparison between enabled and disabled automatic naturalistic lighting in the sample application).
 The experiment consisted of one three-minute session of gameplay for each condition, with and without the automatic naturalistic lighting, per subject.
 In the following, the targeted participant profile, procedure, data collection, and analysis are described.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.7\textwidth]{imgs/sample_app_comparison.png}
+    \caption{Comparison between enabled (left) and disabled (right) automatic naturalistic lighting in the sample card-matching \gls{AR} application. The controls can be hidden before the test device is handed over to the participant.}
+    \label{fig:sample_app_comparison}
+\end{figure}
 
 \subsection{Participants}
 \label{sect:participants}
