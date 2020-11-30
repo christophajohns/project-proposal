@@ -53,13 +53,13 @@
 \label{sec:abstract}
 
 This research project proposes and tests a method to investigate the effect of automatic naturalistic lighting in \gls{AR} applications on immersion and on energy consumption.
-A simple open-source card-matching game is modified to implement and control the corresponding rendering setting as provided by Apple's \gls{AR} \gls{API} RealityKit and tested with a small sample of users.
+A simple open-source card-matching game is modified to implement and control the corresponding rendering setting as provided by Apple's \gls{AR} \gls{API} RealityKit and tested with a small set of users.
 A within-subject research design with a small convenience sample is chosen to measure immersion through the \gls{IEQ} while overall \gls{CPU} usage is monitored and logged for both test conditions in randomized order.
 A Mann-Whitney-U-test is used to test for significant differences in immersion and \gls{CPU} usage between both conditions.
 The pre-test shows that the proposed method is generally appropriate to test the hypothesized relationships.
 For a large-scale study, usability issues of the sample application should be resolved for more reliable measures or another application could be considered.
 Additionally, it should be considered whether the \gls{IEQ} should be replaced with a questionnaire that is more specific to \gls{AR} applications.
-The preliminary results seem to suggest that neither immersion nor \gls{CPU} usage are significantly affected by automatic naturalistic lighting, although a larger scale study is required for a more meaningful account.
+The preliminary results seem to suggest that immersion is not significantly affected by automatic naturalistic lighting whereas \gls{CPU} usage might be higher for the enabled condition, although a larger scale study is required for a more meaningful account.
 
 \end{abstract}
 
@@ -81,30 +81,34 @@ The preliminary results seem to suggest that neither immersion nor \gls{CPU} usa
 \label{sect:introduction}
 
 % What is the problem?
-In recent years, increasingly advanced features for \gls{AR} have become readily available to developers and designers in the form of easy-to-use \glsplural{API}.
-Apple's \gls{AR} \gls{API} RealityKit, for example, has enabled creators to easily add occlusion, video textures, and shared states to their \gls{AR} applications \cite{apple_realitykit_2020-1}.
-One of the especially notable features implemented by this \gls{API} has been real-time light estimation \cite{apple_arlightestimate_2020}.
-Applications that enable this feature gain access to information about a scene's lighting with every video frame that is delivered to the current session \cite{apple_arlightestimate_2020}.
-This information can then be used to apply dynamic shading to virtual objects matching the real-world lighting conditions \cite{apple_arlightestimate_2020}.
-Apple's RealityKit \gls{API} enables this feature by default and-–depending on the available hardware–-uses one or multiple probes in the scene to measure and estimate this so called "environment lighting".
-The resulting lighting estimate is then applied to the virtual objects in the scene \cite{apple_disablearenvironmentlighting_2020}.
-To achieve this naturalistic lighting, camera-sensor data is continuously processed and evaluated to estimate and approximate the environment's lighting conditions and dynamically add the appropriate shading to the objects in a scene~\cite{apple_arlightestimate_2020,apple_disablearenvironmentlighting_2020}.
+Through the dissemination of powerful and easy-to-use \glsplural{API}, increasingly advanced features for \gls{AR} have become readily available to developers and designers.
+Apple's \gls{AR} \gls{API} \textit{RealityKit}, for example, has enabled creators to easily add occlusion, video textures, and shared states for collaborative experiences to their \gls{AR} applications~\cite{apple_realitykit_2020-1}.
+One of the especially notable features has been real-time light estimation~\cite{apple_arlightestimate_2020}.
+Applications that enable this feature gain access to information about a scene's lighting with every video frame that is delivered to the current session~\cite{apple_arlightestimate_2020}.
+This information can then be used to apply dynamic shading to virtual objects matching the real-world lighting conditions~\cite{apple_arlightestimate_2020}.
+Apple's RealityKit \gls{API} enables this feature by default and-–depending on the available hardware–-uses one or multiple probes in the scene to measure and estimate this so called "environment lighting"~\cite{apple_disablearenvironmentlighting_2020}.
+The resulting lighting estimate is then applied to the virtual objects in the scene~\cite{apple_disablearenvironmentlighting_2020}.
+To achieve this naturalistic lighting, camera-sensor data is continuously processed to estimate and approximate the environment's lighting conditions in order to dynamically add the appropriate shading to each virtual object~\cite{apple_arlightestimate_2020,apple_disablearenvironmentlighting_2020}.
 Depending on the scene and lighting conditions, this can be a computationally intensive process~\cite{steed_constructing_2016}.
-Enabling this feature could, therefore, lead to increased scene realism at the cost of decreased energy efficiency.
-This research aims at illuminating the relationship between immersion and energy impact in deploying automatic naturalistic lighting, thus empowering developers and designers to decide the most appropriate feature sets for their applications considering both user experience and sustainability aspects.
-While there have been user-based studies evaluating visual characteristics of \gls{AR} objects, this particular aspect of automatic naturalistic lighting appears not to have been examined yet.
+Enabling automatic naturalistic lighting could, therefore, lead to increased scene realism at the cost of decreased energy efficiency.
 
+This research aims at illuminating the relationship between immersion and energy consumption in deploying automatic naturalistic lighting, thus empowering developers and designers to decide the most appropriate feature sets for their applications considering both user experience and sustainability aspects.
+For this, our project builds on two main lines of research: prior works evaluating the relationship between visual characteristics of \gls{AR} objects and user experience (e.g.~\cite{gabbard_effects_2006}) and research on the approximation of natural lighting conditions within virtual scenes in augmented reality (e.g.~\cite{aittala_inverse_2010}).
+While there has been extensive research on the effect of design decisions on several aspects of user experience in digital games~\cite{johnson_validation_2018} -- even in \gls{AR} games in a few instances (e.g.~\cite{georgiou_development_2017}) -- the effect of lighting and more specifically automatic naturalistic lighting in \gls{AR} games on immersion seems not to have been examined yet.
 
-% What are the major contributions?
-Examining the problem statement, two eventual outcomes of our project are possible:
-If we find a trade-off between immersion and energy consumption, designers and developers should be recommended to avoid continuous \gls{AR} light estimation in order to free resources for either alternative uses or to extend battery life.
-If we find no trade-off, developers and designers can be responsibly encouraged to implement the feature in order to enhance overall immersion.
-Each outcome could be considered a worthwhile contribution to the field of \gls{AR} and immersion research.
-The expected deliverables for our project are: an example \gls{AR} application to measure immersion levels and monitor energy consumption; a pre-tested and evaluated method (setup, procedure, and analysis) for a full-scale study; an indication for the results of a full-scale study.
+We chose to investigate the effect of automatic naturalistic lighting on immersion--in contrast to, for example, \textit{flow}~\cite{csikszentmihalyi_flow_1990}--, because it is independent from optimal experience, which our method will not be able to produce, and very likely to relate to visual presentation and, therefore, lighting~\cite{jennett_measuring_2008}.
+There exist multiple alternative measures that could have been chosen to explore aspects of the experience when playing video games instead (see~\cite{dey_systematic_2018, dunser_survey_2008} for overviews).
+We reason, however, that immersion is an appropriate measure for this study since automatic naturalistic lighting is likely to enhance the sense of realism of a scene and might therefore affect users' sense of immersion.
+As Witmer and Singer argue, "scene realism" is one of the governing factors for presence in virtual environments~\cite{witmer_measuring_1998}, which in turn affects how immersive a virtual environment appears~\cite{jennett_measuring_2008}.
+
+Since we are limited by our resources in terms of time and budget, however, and since this research project is conducted during the COVID-19 pandemic, we will not be able to reach the necessary number of participants that would be required to fully illuminate said relationship.
+Instead, we will focus on preparing a full-scale study by proposing and pre-testing the study design as well as developing and evaluating the necessary tools, for example a sample application and an analysis script.
+This project will, therefore, give some indication about the results of a full-scale study, but will mainly provide insights into the strengths and weaknesses of our chosen method and tools.
+The expected deliverables for our project are: an example \gls{AR} application to measure immersion levels and monitor energy consumption; a pre-tested and evaluated method (setup, procedure, and analysis) for a full-scale study; and an indication for the results of a full-scale study.
 
 
 % What are the research questions?
-Overall, we will explore the following questions:
+Overall, we propose to explore the following questions:
 
 \begin{description}
     \item[RQ1.] Do users perceive a difference in immersion between enabled and disabled automatic naturalistic lighting?
@@ -112,44 +116,23 @@ Overall, we will explore the following questions:
     \item[RQ2.] How does enabling automatic naturalistic lighting affect \gls{CPU} usage?
 \end{description}
 
-Energy consumption will be measured in terms of \gls{CPU} usage for two major reasons.
-First, because there is no dedicated \gls{GPU} in the mobile devices we will be testing, so the \gls{CPU} will handle all processing related to the \gls{AR} experience.
+In our pre-test, energy consumption will be measured in terms of \gls{CPU} usage for two major reasons.
+First, because there is no dedicated \gls{GPU} in the mobile device we will be testing, so the \gls{CPU} will handle all processing related to the \gls{AR} experience.
 And second, because CPU usage can very finely be measured on the test device in contrast to general energy consumption.
-While we are aware that we will only be able to test the proposed method on a small scale, we hypothesize the following outcomes for a full-scale experiment.
 
-
-% What are the hypotheses?
-As will be further explained in section \ref{sect:related_works}, scene realism is positively correlated with presence and thereby immersion.
-That is why we expect the lighting condition that more closely matches the scene's natural environment to lead to higher levels of immersion, resulting in the following hypothesis:
+While we are aware that we will only be able to test the proposed method on a small scale, we hypothesize the following outcomes for a full-scale experiment:
 
 \begin{description}
     \item[H1.] Users experience higher immersion levels when automatic naturalistic lighting is enabled.
-\end{description}
-
-Because the difference between both conditions lies in a salient visual feature which affects \gls{AR} objects' color and reflections, we expect not only the indirect measure of immersion as assessed through the \gls{IEQ} to be affected.
-We instead hypothesize that users will recognize the difference between both conditions and will be able to articulate how they differ without support from the examiner.
-This leads us to this hypothesis:
-
-\begin{description}
     \item[H1a.] Users are able to tell that the lighting was different between both runs of the experiment.
-\end{description}
-
-Finally, regarding the energy impact of naturalistic lighting, we expect the computationally intensive continuous probing and estimation of the \gls{AR} scenes environment lighting to lead to higher levels of overall \gls{CPU} usage:
-
-\begin{description}
     \item[H2.] \gls{CPU} usage is higher when automatic naturalistic lighting is enabled.
 \end{description}
 
-
-\section{Related Works}
-\label{sect:related_works}
-
-Our research project builds on two main lines of research: prior works evaluating the relationship between visual characteristics of \gls{AR} objects and user experience (e.g.~\cite{gabbard_effects_2006}) and research on the approximation of natural lighting conditions within virtual scenes in augmented reality (e.g.~\cite{aittala_inverse_2010}).
-While there has been extensive research on the effect of design decisions on several aspects of user experience in digital games~\cite{johnson_validation_2018} -- even in \gls{AR} games in a few instances (e.g.~\cite{georgiou_development_2017}) -- the effect of lighting and more specifically automatic naturalistic lighting in \gls{AR} games on immersion seems not to have been examined yet.
-
-While several aspects of the experience when playing videos games in general and \gls{AR} games in particular have been defined and measured as well (see~\cite{dey_systematic_2018, dunser_survey_2008} for overviews), we chose to investigate the effect of automatic naturalistic lighting on immersion because--in contrast to, for example, \textit{flow}~\cite{csikszentmihalyi_flow_1990}--it is independent from optimal experience, which our method will not be able to produce, and very likely to relate to visual presentation and, therefore, lighting~\cite{jennett_measuring_2008}.
-As Witmer and Singer argue, "scene realism" is one of the governing factors for presence in virtual environments~\cite{witmer_measuring_1998}, which in turn affects how immersive a virtual environment appears~\cite{jennett_measuring_2008}.
-We reason that automatic naturalistic lighting enhances this sense of realism and will therefore affect users' sense of immersion.
+As has been explained above, scene realism is positively correlated with presence and thereby immersion.
+That is why we expect the lighting condition that more closely matches the scene's natural environment to lead to higher levels of immersion, resulting in the first hypothesis.
+Second, because the difference between both conditions lies in a salient visual feature which affects \gls{AR} objects' color and reflections, we expect not only the indirect measure of immersion as assessed through the \gls{IEQ} to be affected.
+We instead hypothesize that users will recognize the difference between both conditions and will be able to articulate how they differ without support from the examiner.
+And finally, regarding the energy impact of automatic naturalistic lighting, we expect the computationally intensive continuous probing and estimation of the \gls{AR} scenes environment lighting to lead to higher levels of overall \gls{CPU} usage.
 
 
 \section{Method}
