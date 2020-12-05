@@ -240,90 +240,92 @@ The enabled condition resulted in a significantly higher overall \gls{CPU} usage
 \section{Discussion}
 \label{sect:discussion}
 
-The results of our pre-study seem to indicate that there might not be a trade-off between increasing immersion and reducing energy consumption when deploying automatic naturalistic lighting.
+The results of our pre-study seem to indicate that there might not be a trade-off between improving immersion and increasing energy consumption when deploying automatic naturalistic lighting.
 Instead, it appears that immersion is largely unaffected by the feature while energy consumption as measured through \gls{CPU} usage in our experiment might be slightly increased.
+This would lead us to conclude that automatic naturalistic lighting should not be employed by designers and developers to preserve users' battery or free computational resources for alternative uses.
+We need, however, to look at the results in more detail to justify this conclusion.
 
 As our results regarding hypothesis \textbf{H1} show, the immersion scores for our seven participants did not significantly differ between enabled and disabled automatic naturalistic lighting.
-We, instead, observed a comparatively quite wide distribution for the enabled condition (SD = 7.3).
-This could indicate that the difference between both lighting conditions is hardly perceivable when not put side by side and that other factors such as changes in the environment (e.g. noises or a change in natural lighting) overshadow its effect on immersion.
+We, instead, observed a comparatively quite wide distribution for the both conditions (enabled: SD = 7.3; disabled: SD = 6.7).
+This could indicate that the difference between both lighting conditions is hardly perceivable when not put side by side and that other factors such as changes in the environment (e.g. noises or a change in natural lighting) overshadow automatic naturalistic lighting's effect on immersion.
 This is further supported by our results regarding hypothesis \textbf{H1a}.
 
-According to the questionnaire data as well as the comments from our study participants, the visual characteristics of the scene did not appear significantly different between both conditions.
-Even when it was explained to the participants what the difference was, some could not recall any difference in appearance.
-Only when toggling the corresponding render setting for a live scene, the participants were able to recognize that the virtual objects were lit differently.
+According to the questionnaire data as well as the comments from our study participants, the visual characteristics of the scene did not appear noticeably different between both conditions.
+Even when the two tested conditions were explained to the participants, some could not recall any difference in appearance between them.
+Only when toggling the corresponding render setting for a live scene resulting in an immediate change, the participants were able to recognize that the virtual objects were lit differently.
 Similarly, the immersion scores for both groups–-those participants who claimed to have noticed a difference between both conditions and those who stated to have not seen any difference--did not differ significantly.
-It seems that the hypothesized improvement in scene realism brought about by automatic naturalistic lighting in our chosen application was not strong enough to be perceived or to result in increased immersion.
+It seems that the hypothesized improvement in scene realism brought about by automatic naturalistic lighting in our chosen application was not strong enough to be perceived or to result in increased immersion as measured through the \gls{IEQ}.
 
-A similar image seems to emerge when examining \gls{CPU} usage.
+A similar impression emerges when examining \gls{CPU} usage.
 Taking only mean overall \gls{CPU} usage into consideration, we would have to reject our hypothesis \textbf{H2}.
-\gls{CPU} utilization appears largely unaffected by enabling or disabling automatic naturalistic lighting with the results of our Mann-Whitney U-test showing no significant difference and even the range of mean \gls{CPU} usage being remarkably similar (disabled: 53.2\% to 70.1\%; enabled: 51.7\% to 71.3\%).
-When considering the distribution of all \gls{CPU} usage data between both conditions, however, a slight but significant increase can be observed for enabled automatic naturalistic lighting.
+\gls{CPU} utilization appears largely unaffected by enabling or disabling automatic naturalistic lighting with the results of our Mann-Whitney U-test showing no significant difference between both conditions and even the range of mean \gls{CPU} usage being remarkably similar (disabled: 53.2\% to 70.1\%; enabled: 51.7\% to 71.3\%).
+When considering the distribution of all \gls{CPU} usage data between both conditions, however (i.e. treating the overall \gls{CPU} usage at any point of time during all experiments the same without aggregating the data first), a slight but significant increase during enabled automatic naturalistic lighting can be observed.
 While this would generally support our hypothesis, the difference in \gls{CPU} usage is so small that it would likely not result in a perceivable difference in energy consumption or battery life for users of the sample application.
+This conclusion would, however, need to be validated by another study.
 
 This leaves us with the overall result of our pre-study:
 While the difference between both conditions can be noticed in a side-by-side comparison, enabling or disabling automatic naturalistic lighting does not have a significant effect on the appearance of \gls{AR} scenes and consequently on immersion.
 And while it statistically could be argued--even with our small sample size--that \gls{CPU} usage and thereby energy consumption is affected by this choice, it would likely not result in a meaningful difference for the user or player experience of an \gls{AR} application.
-It is therefore within designers' and developers' volition whether to enable or disable automatic naturalistic lighting for their applications according to their preferences or other factors than the ones examined in this study.
-We are, however, aware of the numerous limitations of our pre-study and want to give as complete an account as possible to prepare for a possible full-scale study with a higher number of participants investigating the same relationships.
+It is, therefore, within designers' and developers' volition whether to enable or disable automatic naturalistic lighting for their applications according to their preferences or other decision factors than those examined in this study.
+
+We are, however, aware of the numerous limitations of our pre-study and want to give as complete an account as possible of these weaknesses to prepare for a possible full-scale study with a higher number of participants investigating the same relationships.
 
 % Limitations
+The most pressing and most obvious limitation of our pre-study is the small sample size.
+We were largely limited to descriptive statistics and tests with low statistical power due to the fact that we could only gather data from seven participants.
+To reach higher levels of confidence, especially regarding any possible differences in immersion between both tested conditions, more participants would need to be recruited.
+This would likely also address another major issue regarding our sample: the lack of diversity.
+Due to the fact that we relied on convenience sampling during a time where contact outside of one's immediate group of acquaintances is rather difficult or even prohibited, we were unable to recruit any female participants or participants outside the age range of students.
+For a full-scale study, more emphasis should be put on gathering a sample representing a larger part of society.
+
+The results might additionally be affected by the study design.
+Some participants noted that asking about the overall experience and any differences between both runs of the experiment would lead to biased answers since it provoked answers even if the participant would not have experienced significant differences.
+One participant suggested a third experiment variation in addition to the randomized order where the active render setting is not changed between both runs.
+In addition to these weaknesses of our chosen method, we observed some weaknesses of our tooling as well.
+
 While conducting the pre-study, we experienced some difficulties with our chosen software.
 The modified sample application as well as the monitoring and logging software chosen had reliability issues that hindered the data gathering process.
 In one of the experiments, logging of the \gls{CPU} usage suddenly stopped after circa 1.5~min.
 While other data such as network events that were logged automatically by the software could still be accessed, \gls{CPU} data was non-retrievable.
-In another experiment, the logging software crashed after requesting to stop and save the recording.
+In another experiment, the logging software suddenly exited after requesting to stop and save the recording.
 Here again, the \gls{CPU} data wan non-retrievable.
 The sample application, similarly, experienced some issues that seemed to relate to the Xcode \gls{IDE}.
 In one experiment, the application failed to exit through the software and had to be manually shut down.
 Regarding less severe concerns, the sample application appeared to lack in terms of its feedback mechanisms.
 During multiple experiments, the probing phase (i.e. the phase during which the application gathers information about the environment, specifically to find a horizontal plane to use as an anchor for the virtual objects of the scene) which was indicated by an overlay with instructions to slowly move the device was exited without placing the virtual objects in an appropriate time frame.
-No inherent error or pattern to this behavior could be identified.
+No obvious cause or pattern to this behavior could be identified.
 This lead to multiple restarts of the application which delayed several runs of the experiment.
-The Google Forms questionnaire developed for data gathering did not pose any significant challenges when used by the testers.
-The Jupyter notebook developed for data analysis, similarly, did not lead to any significant difficulties.
 
-During the experiments, several participants experienced difficulties when interacting with the sample application.
+During the experiments, several participants further experienced difficulties when interacting with the sample application.
 Since the application does support scaling and positioning during the setup phase for increased usability but does not save these settings, the virtual cards were displayed in the original scale and position after each successful game resulting in visible irritation by the participants.
-Additionally, the participants seemed to experience some discomfort holding the test device as multiple participants started frequently adjusting their grip during the second run of the experiment.
+Additionally, the participants seemed to experience some discomfort holding the test device as multiple participants frequently adjusted their grip during the second run of the experiment.
 One participant even rested the device on a table to avoid having to hold it.
 It was, furthermore, noticeable that all participants moved the device during the trial phase of the experiment and some at the beginning of the first run, but all stopped moving the device altogether eventually.
 They instead remained in a fixed position once a comfortable posture was discovered and only interacted with the application by tapping the screen.
 One participant tried multiple different postures, positions, distances, and orientations during the trial phase but, just as the other participants, stopped this exploratory behavior completely once the first run started.
-Finally, multiple participants were briefly distracted during one or both runs of the experiment by noises or other people in the test environment.
-One participant attempted to start a conversation with the testers during one of the runs which was denied but still interrupted the run.
+In an \gls{AR} application, it could be argued that users should move to immerse themselves in the experience provided which our sample application failed to motivate.
+Instead, the fact that most participants stood still for the entire experiment might have lead to generally too low immersion levels to find a difference between both tested conditions.
+All of these observations seem to indicate generally questionable usability of the chosen application.
 
 Our discussions with the participants revealed that the reliability and usability issues we observed matched the participants' experiences.
 Multiple participants noted that they were irritated by the inconsistent scale and position of the virtual objects.
 Three participants stated unprompted that the device was uncomfortable to hold for the duration of the experiment due to its size and sharp edges.
-The sample application was generally accepted.
 Two participants noted that its simplicity might limit the potential immersion and that the lack of more complex objects and reflections might result in generally smaller differences in immersion between both runs.
 They, furthermore, suspected that this would make it harder for participants to notice any differences between both runs.
-The results would additionally be affected by the study design itself.
-Some participants noted that asking about the overall experience and any differences between both runs of the experiment would lead to biased answers since it provoked answers even if the participant would not have experienced significant differences.
-One participant suggested a third experiment variation in addition to the randomized order where the active render setting is not changed between both runs.
 
-Since the goal of this project is to develop and evaluate a method and the corresponding tools for a full-scale study on the effects of automatic naturalistic lighting on immersion and energy consumption, it needs to be established how well the proposed method is able to provide insight into both relationships and which shortcomings still need to be overcome.
-For this, the observations and comments above need to be consolidated into actionable insights.
-In the following, the two major phases of the envisioned full-scale study will be evaluated separately in regards to how well the developed method and tools are suited to meet each step's requirements: (1) data gathering and (2) data analysis.
-
-The data gathering process as proposed makes use of the sample application developed in this project, the associated logging software, and the Google Forms form that includes the \gls{IEQ}.
-As described in Section \ref{sect:method}, these tools are used in a within-subjects study design with a trial run and two test conditions in randomized order pre-studyed with a small convenience sample.
-While the proposed method was generally appropriate to gather the required data, each of the tools as well as the study design itself has several weaknesses that should be addressed before a full-scale study is conducted.
-First, regarding the general setup, we noticed some inconsistencies in how the experiment was run that might affect the results in a full-scale study.
+Finally, multiple participants were briefly distracted during one or both runs of the experiment by noises or other people in the test environment.
+One participant attempted to start a conversation with the testers during one of the runs which was denied but still interrupted the run.
+This indicates that the study design was unable to prevent inconsistencies in how the experiment was run that might have affect the results.
 Since we did not have access to one consistent room with minimal distractions for our testing, we conducted the pre-study in multiple environments with various lighting conditions and possible disturbances.
-This was especially noticeable when multiple participants were in the same room or when a common room was used.
-The distractions caused by these surroundings and the inconsistencies in the data that might be caused by the different lighting conditions should be avoided in a full-scale study by using a consistent laboratory room with controlled lighting and minimal distractions.
-Additionally, we experienced some difficulties with the sample application and the runs of our experiment.
-As some participants noted, the test device was rather uncomfortable to hold for longer periods of time which might have affected the general lack of movement we observed.
-In an \gls{AR} application, it could be argued that users should move to immerse themselves in the experience provided which our sample application failed to motivate.
-Instead, most participants stood still for the entire experiment which might have lead to generally too low immersion levels to find a difference between both tested conditions.
-Furthermore, we experienced difficulties regarding the application's reliability and stability, as it as well as the associated logging tool crashed twice at such a crucial moment that the experiments' data was non-retrievable.
-In addition, some less severe usability concerns should be considered before using the sample application in larger setting.
-The application currently requires the tester to manually adjust the render setting (i.e. enabling or disabling automatic naturalistic lighting) which can easily lead to errors and thereby faulty data.
-It also does not preserve state about the position and scale chosen by the user which further demotivates movement.
-Moreover, as one participant noted, the virtual scene might be lacking in complexity resulting in a less noticeable difference between both tested conditions.
-While it could be argued that the game's visual complexity is a realistic representation of the complexity of most current \gls{AR} applications, this claim is yet to be supported by additional research.
-To conduct the experiment in a full-scale study, these issues should be addressed and fixed, for example by considering a different device (e.g. a phone), a different framework (e.g. Unity), or an adjusted application (e.g. using different forms and materials in the virtual scene).
+This was especially problematic when multiple participants were in the same room or when a common room was used.
+For a full-scale study, a consistent laboratory room with controlled lighting and minimal distractions should be used instead to avoid these inconsistencies and disturbances.
+
+In regard to the procedure, the lack of a clear script or protocol to explain the experiment in detail and consistently to each participant became clear when multiple participants stopped after their first completed run of the sample game during the first tested condition.
+Despite the explanations given by the testers, they were unaware that their goal was to complete as many runs of the game with as few errors as possible within the given time frame.
+This shows that the explanations were unable to provide the participants with the necessary information about their task during the experiment.
+For a full-scale study, a clear protocol to be read aloud by the tester should be considered.
+Moreover, as one participant pointed out, the inclusion of a placebo condition might be an appropriate addition to further control bias.
+While the randomization is well suited to reduce the effect of order on the overall immersion scores, introducing a condition where participants are shown the same lighting in both conditions could reveal further information about the effect that asking for immersion twice during and asking for difference at the end of the experiment might have on the results.
 
 Regarding the questionnaire that accompanied the experiment, there are four observations that we want to highlight here.
 First, we noticed that multiple participants were slightly irritated by the fact that we used one Google Forms form for all information regarding one experiment (incl. the consent form and data to be filled by the tester).
@@ -339,23 +341,13 @@ Finally, and related to the point above, the choice of the \gls{IEQ} might want 
 This might be one of the reasons, why our preliminary results regarding \textbf{H1} seem to indicate no significant effect of automatic naturalistic lighting on overall immersion.
 Since there are alternatives available that are in some cases even developed specifically for \gls{AR} applications~\cite{georgiou_development_2017}, these should be reviewed before conducting a full-scale study based on the \gls{IEQ}.
 
-In regard to the overall study design, the lack of a clear script or protocol to explain the experiment in detail and consistently to each participant became clear when multiple participants stopped after their first completed run of the sample game during the first tested condition.
-Despite the explanations given by the testers, they were unaware that their goal was to complete as many runs of the game with as few errors as possible within the given time frame.
-This shows that the explanations were unable to provide the participants with the necessary information about their task during the experiment.
-For a full-scale study, a clear protocol to be read aloud by the tester should be considered.
-Moreover, as one participant pointed out, the inclusion of a placebo condition might be an appropriate addition to further control bias.
-While the randomization is well suited to reduce the effect of order on the overall immersion scores, introducing a condition where participants are shown the same lighting in both conditions could reveal further information about the effect that simply asking for immersion twice and asking for difference at the end of the experiment might have on the results.
-
-This brings us to the second phase of a potential full-scale experiment, the data analysis.
-While the Jupyter notebook developed during this project is generally suitable to process and analyze the gathered data, some of the decisions about the analyzed measures and the meaning that can be derived from their results can be put into question.
-One minor feature that is missing from the notebook at this stage is a test for normality and the subsequent Student's t-test that might be able to provide some additional insight into the effect of automatic naturalistic lighting on immersion and \gls{CPU} usage.
-On a more severe note, it can be argued that \gls{CPU} usage is unsuitable to measure energy consumption since it is not examined both truly correlate, since, typically, the \gls{GPU} handles most computation for rendering, and since overall \gls{CPU} usage is not only affected by the sample application.
+Similarly, it can be argued that \gls{CPU} usage is unsuitable to measure energy consumption since it is not examined both truly correlate, since, typically, the \gls{GPU} handles most computation for rendering, and since overall \gls{CPU} usage is not only affected by the sample application.
 Multiple background services might mask the effect of automatic naturalistic lighting on the \gls{CPU}.
 While the measure was chosen, among other reasons, because of its granular logging possibilities and while it seems to be affected by the rendering condition in our preliminary testing (see the analysis regarding \textbf{H2} in Section \ref{sect:results}), these concerns should be addressed by further researching and considering alternative measures and frameworks as well as testing those measures chosen for their correlation with more direct but less granular measures of energy consumption like Instrument's Abstract Power Measurement~\cite{apple_abstract_2020}.
 Finally, it should be reviewed whether the study design and tooling provided by this project is economical enough for a full-scale study.
 Since the setup requirements are quite high--a consistently available, non-distracting room with controlled lighting, a consistent test device, at least one tester per participant, and both a questionnaire as well as an experiment-- and since the results might be fast outdated due to the fast-changing API and underlying technology (e.g. the camera or processor), a full-scale study might consider splitting off or re-designing parts of the study, for example by testing the effect of automatic naturalistic lighting on energy consumption in a separate, more controlled study without participants or by including multiple devices and API versions in the study to test for their effect on the results.
 
-Overall, the proposed method and tools are suitable to conduct a full-scale study on the effects of automatic naturalistic lighting on immersion and energy consumption, but each of the parts should carefully be considered, evaluated, and possibly modified before investing heavily in such an endeavor.
+Overall, the proposed method and tools are suitable to conduct a full-scale study on the effects of automatic naturalistic lighting on immersion and energy consumption that builds on the results of this pre-study, but each of the parts should carefully be considered, evaluated, and possibly modified before investing heavily in such an endeavor.
 
 
 \bibliography{II2202-proposal}
