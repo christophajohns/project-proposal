@@ -5,6 +5,6 @@ source bin/word
 source bin/pdf
 source bin/spellcheck
 echo "Export release files"
-cp StefanoFormicola_ChristophAlbertJohns-Draft_Report-20201130.docx rel
-cp StefanoFormicola_ChristophAlbertJohns-Draft_Report-20201130.pdf rel
+cp StefanoFormicola_ChristophAlbertJohns-Draft_Report-20201208.docx rel
+cp StefanoFormicola_ChristophAlbertJohns-Draft_Report-20201208.pdf rel
 cp spellcheck.html rel
