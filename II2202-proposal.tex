@@ -107,7 +107,7 @@ The deliverables of our project are: an example \gls{AR} application to measure 
 Overall, we propose to explore the following questions:
 
 \begin{description}
-    \item[RQ1.] Do users perceive a difference in immersion between enabled and disabled automatic naturalistic lighting?
+    \item[RQ1.] Do users experience a difference in immersion between enabled and disabled automatic naturalistic lighting?
     \item[RQ1a.] If they perceive a difference, are the participants able to tell that lighting is the cause?
     \item[RQ2.] How does enabling automatic naturalistic lighting affect \gls{CPU} usage?
 \end{description}
@@ -195,9 +195,11 @@ If a participant referred to "light", "lighting", "color", or "contrast" while a
 \subsection{Data analysis}
 \label{sect:data_analysis}
 
-After the above data had been successfully gathered, we used a Jupyter Notebook with Python~3.8.3 (further details on the packages used can be found in Section~\ref{sect:results}) to conduct a statistical analysis regarding the participants' immersion levels and the \gls{CPU} usage between both lighting conditions using a Mann-Whitney U-test to check for significant differences.
+After the above data had been successfully gathered, we conducted a statistical analysis regarding the participants' immersion levels and the \gls{CPU} usage between both lighting conditions using a Mann-Whitney U-test to check for significant differences.
 We chose this test because it does not require a normal distribution and because it was used by Jennett et al. in their original studies on immersion~\cite{jennett_measuring_2008}.
 However, the Student's \textit{t}-test's could also have been used if the data was normally distributed as for example Nordin et al.~\cite{nordin_attention_2013} did in their immersion experiments.
+All statistical analysis was performed using Python 3.8.3 with the packages Pandas 1.1.4 and SciPy 1.5.4.
+All visualizations were created using Seaborn 0.11.0.
 Additionally, we report the results of the open questions.
 
 We are aware that neither the results of our statistical analysis nor those of our qualitative research should be used to infer knowledge about either the effect of automatic naturalistic lighting on immersion or energy consumption due to the small sample size.
@@ -206,8 +208,6 @@ Rather, the analysis can give some indication as to the results of a full-scale 
 \section{Results}
 \label{sect:results}
 
-All statistical analysis was performed using Python 3.8.3 with the packages Pandas 1.1.4 and SciPy 1.5.4.
-All visualizations were created using Seaborn 0.11.0.
 The immersion scores per question according to the \gls{IEQ} were calculated as ranging from a 1 for strongly disagree to a 5 for strongly agree.
 Scores for positively formulated questions were added, while scores for negatively formulated questions were subtracted to calculate the overall immersion score per participant and condition.
 Overall \gls{CPU} usage at a given time was calculated by adding the \gls{CPU} usage percentages for all activity kinds with the same timestamp.
@@ -270,7 +270,9 @@ It is, therefore, within designers' and developers' volition whether to enable o
 
 We are, however, aware of the numerous limitations of our pre-study and want to give as complete an account as possible of these weaknesses to prepare for a possible full-scale study with a greater number of participants investigating the same relationships.
 
-% Limitations
+\section{Limitations}
+\label{sect:limitations}
+
 The most pressing and most obvious limitation of our pre-study is the small sample size.
 We were largely limited to descriptive statistics and tests with low statistical power due to the fact that we could only gather data from seven participants.
 To reach higher levels of confidence, especially regarding any possible differences in immersion between both tested conditions, more participants would need to be recruited.
@@ -351,6 +353,16 @@ Finally, it should be reviewed whether the study design and tooling provided by 
 Since the setup requirements are quite high--a consistently available room with minimal distractions and controlled lighting, a consistent and high-powered test device, at least one tester per participant, and both a questionnaire as well as an experiment--and since the results might be fast outdated due to fast-changing \glsplural{API} and their underlying technology, a full-scale study might consider splitting off or re-designing parts of the study, for example by testing the effect of automatic naturalistic lighting on energy consumption in a separate, more controlled study without participants.
 If the study design is deemed economical, it should be considered whether to expand the scope by including multiple devices and API versions to test for their effect on the results.
 
+\section{Conclusion}
+\label{sect:conclusion}
+
+While our pre-study has several limitations in regards to general knowledge that can be inferred from our results, there seem to be some indications in regards to our research questions.
+Concerning research question \textbf{RQ1} whether users of \gls{AR} applications would experience a difference in immersion between enabled and disabled automatic naturalistic lighting, the results of our analysis seem to suggest that there might not be a considerable effect of automatic naturalistic lighting on immersion.
+As both the answers to the \gls{IEQ} and the comments of our participants indicate, the difference in colors and contrast caused by enabling automatic naturalistic lighting might generally not strong enough to be noticeable without directing users' attention to it.
+Regarding research question \textbf{RQ1a}, this means that–-while participants might perceive a difference between both conditions--the difference in lighting is so subtle that users have difficulty articulating what caused this impression.
+Finally, in regards to research question \textbf{RQ2}, our results point to a slight increase in \gls{CPU} usage when enabling automatic naturalistic lighting.
+This effect might, however, be so small as to be unnoticeable in real-world usage.
+For a more meaningful account, additional measures that more closely relate to device battery life should be monitored as well.
 Overall, the proposed method and tools are suitable to conduct a full-scale study on the effects of automatic naturalistic lighting on immersion and energy consumption that builds on the results of this pre-study, but each of the parts should carefully be considered, evaluated, and possibly modified before investing heavily in such an endeavor.
 This study should be used as a starting point for designing such a full-scale study.
 
