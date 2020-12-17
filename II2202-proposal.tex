@@ -80,31 +80,32 @@ Additionally, it should be considered whether the \gls{IEQ} should be replaced w
 \label{sect:introduction}
 
 % What is the problem?
-Through the dissemination of powerful and easy-to-use \glsplural{API}, increasingly advanced features for \gls{AR} have become readily available to developers and designers.
+Through the dissemination of powerful and easy-to-use framework \glsplural{API}, increasingly advanced features for \gls{AR} have become readily available to developers and designers.
 Apple's \gls{AR} \gls{API} \textit{RealityKit}, for example, has enabled creators to easily add occlusion, video textures, and shared states for collaborative experiences to their \gls{AR} applications~\cite{apple_realitykit_2020-1}.
-One of the especially notable features that have recently been introduced has been real-time light estimation~\cite{apple_arlightestimate_2020}.
-Applications that enable this feature--or as in the case of Apple's RealityKit \gls{API} choose not to disable this default setting--gain access to information about a scene's lighting with every video frame that is delivered to the current session~\cite{apple_arlightestimate_2020}.
-This information can then be used to apply dynamic shading to virtual objects matching the real-world lighting conditions~\cite{apple_arlightestimate_2020}.
-To achieve this, camera-sensor data for one ore multiple probes in the scene is continuously processed and evaluated~\cite{apple_arlightestimate_2020,apple_disablearenvironmentlighting_2020}.
-Depending on the scene and lighting conditions, this can be a computationally intensive operation~\cite{steed_constructing_2016}.
+One of the especially notable new features has been real-time light estimation~\cite{apple_arlightestimate_2020}.
+Applications that enable this feature -- or as in RealityKit choose to set it as default setting -- gain access to information about a scene's lighting with every video frame that is delivered to the current session~\cite{apple_arlightestimate_2020} to apply dynamic shading to virtual objects matching the real-world lighting conditions~\cite{apple_arlightestimate_2020}.\\
+To achieve this, camera-sensor data for one or multiple probes in the scene is continuously processed and evaluated~\cite{apple_arlightestimate_2020,apple_disablearenvironmentlighting_2020}.
+This, depending on the scene and lighting conditions, can be a computationally intensive operation~\cite{steed_constructing_2016}.
 Enabling automatic naturalistic lighting could, therefore, lead to increased scene realism at the cost of decreased energy efficiency.
 
 This research aims at illuminating the relationship between immersion and energy consumption in deploying automatic naturalistic lighting, thus empowering developers and designers to decide the most appropriate feature sets for their applications considering both user experience and sustainability aspects.
 For this, our project builds on two main lines of research: prior works evaluating the relationship between visual characteristics of \gls{AR} objects and user experience (e.g.~\cite{gabbard_effects_2006}) and research on the approximation of natural lighting conditions within virtual scenes in augmented reality (e.g.~\cite{aittala_inverse_2010}).
-While there has been extensive research on the effect of design decisions on several aspects of user experience in digital games~\cite{johnson_validation_2018} -- even in \gls{AR} games in a few instances (e.g.~\cite{georgiou_development_2017}) -- the effect of lighting and more specifically automatic naturalistic lighting in \gls{AR} games on immersion seems not to have been examined yet.
+While there has been extensive research on the effect of design decisions on several aspects of user experience in digital games~\cite{johnson_validation_2018} -- even in \gls{AR} games (e.g.~\cite{georgiou_development_2017}) -- the effect of lighting and more specifically automatic naturalistic lighting in \gls{AR} games on immersion seems not to have been examined yet.
 
-We choose to investigate the effect of automatic naturalistic lighting on immersion--in contrast to, for example, \textit{flow}~\cite{csikszentmihalyi_flow_1990}--, because it is independent from optimal experience, which our method will not be able to produce, and very likely to relate to visual presentation and, therefore, lighting~\cite{jennett_measuring_2008}.
+We chose to investigate the effect of automatic naturalistic lighting on immersion -- in contrast to, for example, \textit{flow}~\cite{csikszentmihalyi_flow_1990} -- because it is independent from optimal experience, which our method wasn't able to produce, and very likely to relate to visual presentation and, therefore, lighting~\cite{jennett_measuring_2008}.
 There exist multiple alternative measures that could have been chosen to explore aspects of the experience when playing video games instead (see~\cite{dey_systematic_2018, dunser_survey_2008} for overviews).
-We reason, however, that immersion is an appropriate measure for this study since automatic naturalistic lighting is likely to enhance the sense of realism of a scene and might therefore affect users' sense of immersion.
+We reasoned, however, that immersion is an appropriate measure for this study since automatic naturalistic lighting is likely to enhance the sense of realism of a scene and might therefore affect users' sense of immersion.
 As Witmer and Singer argue, "scene realism" is one of the governing factors for presence in virtual environments~\cite{witmer_measuring_1998}, which in turn affects how immersive a virtual environment appears~\cite{jennett_measuring_2008}.
 
-Since we are limited by our resources in terms of time and budget, however, and since this research project is conducted during the COVID-19 pandemic, we will not be able to reach the necessary number of participants that would be required to fully illuminate said relationship.
-Instead, we will focus on preparing a full-scale study by conducting a smaller scale pre-study that can give some indication about the results as well as provide some insights into the suitability of our chosen methods and tools.
-The deliverables of our project are: an example \gls{AR} application to measure immersion levels and monitor energy consumption; a tested and evaluated method (setup, procedure, and analysis) for a full-scale study; and an indication for the results of a full-scale study.
+\subsection{Research Questions}
+
+Since we were limited by our resources in terms of time and budget, however, and since this research project has been conducted during the COVID-19 pandemic, we were not able to reach the necessary number of participants that would be required to fully illuminate said relationship.
+Instead, we focused on preparing a full-scale study by conducting a smaller scale pre-study that can give some indication about the results as well as provide some insights into the suitability of our chosen methods and tools.
+The deliverables of our project are: an example \gls{AR} application to measure immersion levels and monitor energy consumption, a tested and evaluated method (setup, procedure, and analysis) for a full-scale study and an indication for the results of a it.
 
 
 % What are the research questions?
-Overall, we propose to explore the following questions:
+Overall, we proposed to explore the following questions:
 
 \begin{description}
     \item[RQ1.] Do users experience a difference in immersion between enabled and disabled automatic naturalistic lighting?
@@ -112,11 +113,11 @@ Overall, we propose to explore the following questions:
     \item[RQ2.] How does enabling automatic naturalistic lighting affect \gls{CPU} usage?
 \end{description}
 
-In our pre-study, energy consumption will be measured in terms of \gls{CPU} usage for two major reasons.
-First, because there is no dedicated \gls{GPU} in the mobile device we will be testing, so the \gls{CPU} will handle all processing related to the \gls{AR} experience.
-And second, because CPU usage can very finely be measured on the test device in contrast to general energy consumption.
+In our pre-study, energy consumption has been measured in terms of \gls{CPU} usage because it can very finely be measured on the test device in contrast to general energy consumption.
 
-While we are aware that we will only be able to test the proposed method on a small scale, we hypothesize the following outcomes for a full-scale experiment:
+\subsection{Research Hypotheses}
+
+While we are aware that we were only able to test the proposed method on a small scale, we hypothesize the following outcomes for a full-scale experiment:
 
 \begin{description}
     \item[H1.] Users experience higher immersion levels when automatic naturalistic lighting is enabled.
