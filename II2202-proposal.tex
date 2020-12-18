@@ -153,8 +153,8 @@ In the following, the participant profile, procedure, data collection, and analy
 \subsection{Participants}
 \label{sect:participants}
 
-The participants were recruited via an opportunity sample and were--due to the difficulties and restrictions regarding gatherings of people during the COVID-19 pandemic--mostly international students living on campus at a major technical university in Sweden.
-To limit the effect of novelty on immersion levels, participants were required to have had played a card-matching game similar to the sample game before.
+The participants were recruited via an opportunity sample and were -- due to the difficulties and restrictions regarding gatherings of people during the COVID-19 pandemic -- mostly international students living on campus at a major technical university in Sweden.
+To limit the effect of novelty on immersion levels, they were required to have had played a card-matching game similar to the sample game before.
 It was, however, not required that they have played a digital version of this game before taking part in the experiment.
 To further mitigate the effect of novelty, participants were required to have experienced an \gls{AR} scene on a mobile handheld device before.
 Overall, seven participants took part in this study.
@@ -254,19 +254,18 @@ This is further supported by our results regarding hypothesis \textbf{H1a}.
 According to the questionnaire data as well as the comments from our study participants, the visual characteristics of the scene did not appear noticeably different between both conditions.
 Even when the setup of the experiment was explained to the participants, some could not recall any difference in appearance between the conditions.
 Only when toggling the corresponding render setting for a live scene resulting in an immediate change, the participants were able to recognize that the virtual objects were lit differently.
-Similarly, the immersion scores for both groups–-those participants who claimed to have noticed a difference between both conditions and those who had not--did not differ significantly.
+Similarly, the immersion scores for both groups–-those participants who claimed to have noticed a difference between both conditions and those who had not -- did not differ significantly.
 It seems that the hypothesized improvement in scene realism brought about by automatic naturalistic lighting was not strong enough in our chosen application to be consciously perceived or to result in increased immersion as measured through the \gls{IEQ}.
 
-A similar impression emerges when examining \gls{CPU} usage.
-Taking only mean overall \gls{CPU} usage into consideration, we would have to reject our hypothesis \textbf{H2}.
-Mean \gls{CPU} utilization appears largely unaffected by enabling or disabling automatic naturalistic lighting with the results of our Mann-Whitney U-test showing no significant difference between both conditions and even the range of mean \gls{CPU} usage being remarkably similar (disabled: 53.2\% to 70.1\%; enabled: 51.7\% to 71.3\%).
+A similar impression emerges when examining \gls{CPU} usage: taking only the overall mean utilization into consideration, we would have to reject our hypothesis \textbf{H2}.
+Mean \gls{CPU} usage appears largely unaffected by enabling or disabling automatic naturalistic lighting with the results of our Mann-Whitney U-test showing no significant difference between both conditions and even the range of the two measurements being remarkably similar (disabled: 53.2\% to 70.1\%; enabled: 51.7\% to 71.3\%).
 When considering the distribution of all \gls{CPU} usage data between both conditions, however (i.e. treating the overall \gls{CPU} usage at any point of time during all experiments the same without aggregating the data for an experiment first), a slight but significant increase during enabled automatic naturalistic lighting can be observed.
 While this would generally support our hypothesis, the difference in \gls{CPU} usage is so small that it would likely not result in a perceivable difference in energy consumption or battery life for users of the sample application.
 This conclusion would, however, need to be validated by another study.
 
 This leaves us with the overall result of our pre-study:
 While the difference between both conditions can be noticed in a side-by-side comparison, enabling or disabling automatic naturalistic lighting does not have a significant effect on the appearance of \gls{AR} scenes and consequently on immersion.
-And while it statistically could be argued--even with our small sample size--that \gls{CPU} usage and thereby energy consumption is affected by this choice, it would likely not result in a meaningful difference for the user experience of an \gls{AR} application.
+And while it statistically could be argued -- even with our small sample size -- that \gls{CPU} usage and thereby energy consumption is affected by this choice, it would likely not result in a meaningful difference for the user experience of an \gls{AR} application.
 It is, therefore, within designers' and developers' volition whether to enable or disable automatic naturalistic lighting for their applications according to their preferences or other decision factors than those examined in this study.
 
 We are, however, aware of the numerous limitations of our pre-study and want to give as complete an account as possible of these weaknesses to prepare for a possible full-scale study with a greater number of participants investigating the same relationships.
@@ -291,7 +290,7 @@ The modified sample application as well as the monitoring and logging software c
 In one of the experiments, logging of the \gls{CPU} usage suddenly stopped after circa 1.5~min.
 While other data such as network events that were logged automatically by the software could still be accessed, \gls{CPU} data was non-retrievable.
 In another experiment, the logging software suddenly exited after the tester requested to stop and save the recording.
-Here again, \gls{CPU} data wan non-retrievable.
+Here again, \gls{CPU} data was non-retrievable.
 The sample application, similarly, experienced some issues that seemed to relate to the Xcode \gls{IDE}.
 In one experiment, the application failed to exit through the software and had to be manually shut down.
 Regarding less severe concerns, the sample application appeared to lack in terms of its feedback mechanisms.
@@ -351,7 +350,7 @@ While the measure was chosen, among other reasons, because of its granular loggi
 Additionally, it could be tested whether \gls{CPU} usage and energy consumption correlate using more direct but less granular measures like Instrument's Abstract Power Measurement~\cite{apple_abstract_2020}.
 
 Finally, it should be reviewed whether the study design and tooling provided by this project is economical enough for a full-scale study.
-Since the setup requirements are quite high--a consistently available room with minimal distractions and controlled lighting, a consistent and high-powered test device, at least one tester per participant, and both a questionnaire as well as an experiment--and since the results might be fast outdated due to fast-changing \glsplural{API} and their underlying technology, a full-scale study might consider splitting off or re-designing parts of the study, for example by testing the effect of automatic naturalistic lighting on energy consumption in a separate, more controlled study without participants.
+Since the setup requirements are quite high -- a consistently available room with minimal distractions and controlled lighting, a consistent and high-powered test device, at least one tester per participant, and both a questionnaire as well as an experiment -- and since the results might be fast outdated due to fast-changing \glsplural{API} and their underlying technology, a full-scale study might consider splitting off or re-designing parts of the study, for example by testing the effect of automatic naturalistic lighting on energy consumption in a separate, more controlled study without participants.
 If the study design is deemed economical, it should be considered whether to expand the scope by including multiple devices and API versions to test for their effect on the results.
 
 \section{Conclusion}
@@ -360,7 +359,7 @@ If the study design is deemed economical, it should be considered whether to exp
 While our pre-study has several limitations in regards to general knowledge that can be inferred from our results, there seem to be some indications in regards to our research questions.
 Concerning research question \textbf{RQ1} whether users of \gls{AR} applications would experience a difference in immersion between enabled and disabled automatic naturalistic lighting, the results of our analysis seem to suggest that there might not be a considerable effect of automatic naturalistic lighting on immersion.
 As both the answers to the \gls{IEQ} and the comments of our participants indicate, the difference in colors and contrast caused by enabling automatic naturalistic lighting might generally not strong enough to be noticeable without directing users' attention to it.
-Regarding research question \textbf{RQ1a}, this means that–-while participants might perceive a difference between both conditions--the difference in lighting is so subtle that users have difficulty articulating what caused this impression.
+Regarding research question \textbf{RQ1a}, this means that -- while participants might perceive a difference between both conditions -- the difference in lighting is so subtle that users have difficulty articulating what caused this impression.
 Finally, in regards to research question \textbf{RQ2}, our results point to a slight increase in \gls{CPU} usage when enabling automatic naturalistic lighting.
 This effect might, however, be so small as to be unnoticeable in real-world usage.
 For a more meaningful account, additional measures that more closely relate to device battery life should be monitored as well.
