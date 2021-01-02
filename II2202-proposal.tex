@@ -82,30 +82,32 @@ Additionally, it should be considered whether the \gls{IEQ} should be replaced w
 % What is the problem?
 Through the dissemination of powerful and easy-to-use framework \glsplural{API}, increasingly advanced features for \gls{AR} have become readily available to developers and designers.
 Apple's \gls{AR} \gls{API} \textit{RealityKit}, for example, has enabled creators to easily add occlusion, video textures, and shared states for collaborative experiences to their \gls{AR} applications~\cite{apple_realitykit_2020-1}.
-One of the especially notable new features has been real-time light estimation~\cite{apple_arlightestimate_2020}.
-Applications that enable this feature -- or as in RealityKit choose to set it as default setting -- gain access to information about a scene's lighting with every video frame that is delivered to the current session~\cite{apple_arlightestimate_2020} to apply dynamic shading to virtual objects matching the real-world lighting conditions~\cite{apple_arlightestimate_2020}.\\
+One of the especially notable new features of recent years has been real-time light estimation~\cite{apple_arlightestimate_2020}.
+Applications that enable this feature --- or, as in the case of RealityKit, choose to keep this default setting --- gain access to information about a scene's lighting with every video frame that is delivered to the current session and can use this to apply dynamic shading to virtual objects matching the real-world lighting conditions~\cite{apple_arlightestimate_2020}.
 To achieve this, camera-sensor data for one or multiple probes in the scene is continuously processed and evaluated~\cite{apple_arlightestimate_2020,apple_disablearenvironmentlighting_2020}.
 This, depending on the scene and lighting conditions, can be a computationally intensive operation~\cite{steed_constructing_2016}.
 Enabling automatic naturalistic lighting could, therefore, lead to increased scene realism at the cost of decreased energy efficiency.
 
 This research aims at illuminating the relationship between immersion and energy consumption in deploying automatic naturalistic lighting, thus empowering developers and designers to decide the most appropriate feature sets for their applications considering both user experience and sustainability aspects.
 For this, our project builds on two main lines of research: prior works evaluating the relationship between visual characteristics of \gls{AR} objects and user experience (e.g.~\cite{gabbard_effects_2006}) and research on the approximation of natural lighting conditions within virtual scenes in augmented reality (e.g.~\cite{aittala_inverse_2010}).
-While there has been extensive research on the effect of design decisions on several aspects of user experience in digital games~\cite{johnson_validation_2018} -- even in \gls{AR} games (e.g.~\cite{georgiou_development_2017}) -- the effect of lighting and more specifically automatic naturalistic lighting in \gls{AR} games on immersion seems not to have been examined yet.
+While there has been extensive research on the effect of design decisions on several aspects of user experience in digital games~\cite{johnson_validation_2018} --- even in \gls{AR} games (e.g.~\cite{georgiou_development_2017}) --- the effect of lighting and more specifically automatic naturalistic lighting in \gls{AR} games on immersion seems not to have been examined yet.
 
-We chose to investigate the effect of automatic naturalistic lighting on immersion -- in contrast to, for example, \textit{flow}~\cite{csikszentmihalyi_flow_1990} -- because it is independent from optimal experience, which our method wasn't able to produce, and very likely to relate to visual presentation and, therefore, lighting~\cite{jennett_measuring_2008}.
+We chose to investigate the effect of automatic naturalistic lighting on immersion --- in contrast to, for example, \textit{flow}~\cite{csikszentmihalyi_flow_1990} --- because it is independent from optimal experience, which our method wasn't able to produce, and because it is very likely to relate to visual presentation and, therefore, lighting~\cite{jennett_measuring_2008}.
 There exist multiple alternative measures that could have been chosen to explore aspects of the experience when playing video games instead (see~\cite{dey_systematic_2018, dunser_survey_2008} for overviews).
-We reasoned, however, that immersion is an appropriate measure for this study since automatic naturalistic lighting is likely to enhance the sense of realism of a scene and might therefore affect users' sense of immersion.
-As Witmer and Singer argue, "scene realism" is one of the governing factors for presence in virtual environments~\cite{witmer_measuring_1998}, which in turn affects how immersive a virtual environment appears~\cite{jennett_measuring_2008}.
+We reason, however, that immersion is an appropriate measure for this study since automatic naturalistic lighting is likely to enhance the sense of realism of a scene.
+As Witmer and Singer argue, this sense of "scene realism" is one of the governing factors for presence in virtual environments~\cite{witmer_measuring_1998}, which in turn affects how immersive a virtual environment appears~\cite{jennett_measuring_2008}.
+
+Since we were limited by our resources in terms of time and budget, however, and since this research project was conducted during the COVID-19 pandemic, we were not able to reach the necessary number of participants that would be required to fully illuminate said relationship.
+Instead, we focused on conducting a smaller scale pre-study that can give some indication about the results as well as provide some insights into the suitability of our chosen methods and tools.
+The deliverables of our project are, therefore: an example \gls{AR} application to measure immersion levels and monitor energy consumption, a tested and evaluated method (setup, procedure, and analysis) for a full-scale study and an indication for the results of said study.
 
 \subsection{Research Questions}
 
-Since we were limited by our resources in terms of time and budget, however, and since this research project has been conducted during the COVID-19 pandemic, we were not able to reach the necessary number of participants that would be required to fully illuminate said relationship.
-Instead, we focused on preparing a full-scale study by conducting a smaller scale pre-study that can give some indication about the results as well as provide some insights into the suitability of our chosen methods and tools.
-The deliverables of our project are: an example \gls{AR} application to measure immersion levels and monitor energy consumption, a tested and evaluated method (setup, procedure, and analysis) for a full-scale study and an indication for the results of a it.
-
-
 % What are the research questions?
-Overall, we proposed to explore the following questions:
+For this pre-study as well as for the eventual full-scale study, we are interested in two major research questions relating to one of the two aspects of our investigation each: automatic naturalistic lighting's effect on immersion and its effect on energy consumption.
+More specifically, we want to examine users' perceived immersion when they are explicitly asked to rate said experience using a standardized questionnaire (i.e. the \gls{IEQ} developed by Jennett et al.~\cite{jennett_measuring_2008}) as well as their own unsupported articulation of any difference between enabled and disabled automatic naturalistic lighting.
+Additionally, we want to explore the effect of automatic naturalistic lighting on device metrics collected in the background that can give an indication about the condition's effect on device resource utilization.
+Overall, we proposed to investigate the following questions:
 
 \begin{description}
     \item[RQ1.] Do users experience a difference in immersion between enabled and disabled automatic naturalistic lighting?
@@ -153,58 +155,66 @@ In the following, the participant profile, procedure, data collection, and analy
 \subsection{Participants}
 \label{sect:participants}
 
-The participants were recruited via an opportunity sample and were -- due to the difficulties and restrictions regarding gatherings of people during the COVID-19 pandemic -- mostly international students living on campus at a major technical university in Sweden.
+The participants were recruited via an opportunity sample and were---due to the difficulties and restrictions regarding gatherings of people during the COVID-19 pandemic---mostly international students living on campus at a major technical university in Sweden.
 To limit the effect of novelty on immersion levels, they were required to have had played a card-matching game similar to the sample game before.
-It was, however, not required that they have played a digital version of this game before taking part in the experiment.
+It was, however, not required for participants to have played a digital version of this game before taking part in the experiment.
 To further mitigate the effect of novelty, participants were required to have experienced an \gls{AR} scene on a mobile handheld device before.
 Overall, seven participants took part in this study.
 They had an average age of 24.7 (SD = 1.60), ranging from 23 to 28 years.
 All seven participants were male.
 
+\subsection{Preparations}
+\label{sect:preparations}
+
+To be able to conduct the proposed experiment, we prepared an example application that could easily control the currently active lighting setting and a digital questionnaire that included a consent form as well as the \gls{IEQ}.
+
+We modified an open-source \gls{AR} card-matching game~\cite{cobb_maxxfrazerrealitykit-cardflip_2020} to include an option to enable and disable automatic naturalistic lighting using RealityKit's \textit{.disableAREnvironmentLighting} render option.
+The application was then installed on an Apple iPad Pro 2017 (model number FPDY2FD/A) so it could be presented to participants and monitored using the Xcode \gls{IDE}.
+The application that formed the basis for our experiment was chosen due to its simplicity in functionality and visual presentation as well as participants' general familiarity with the underlying game of \textit{Concentration}, thereby reducing the risk of errors in use or unwanted effects on immersion due to scene complexity or novelty.
+Additionally, several suitable rooms accessible to students were identified so the experiment could be conducted in an indoor setting with controlled lighting.
+
+To collect consent as well as immersion data using the \gls{IEQ}, a Google Forms document was prepared that informed participants about the purpose of the experiment as well as the kind of data that would be collected, stored, and analyzed (see Appendix~\ref{sect:consent-form}).
+Additionally, it included two instances of the \gls{IEQ} developed by Jennett et al.~\cite{jennett_measuring_2008} to collect data on players' immersion levels for each of the two lighting conditions.
+The full extent of the \gls{IEQ} as used in this experiment can be found in Appendix~\ref{sect:ieq}.
+
 \subsection{Procedure}
 \label{sect:procedure}
 
-We modified an open-source \gls{AR} card-matching game~\cite{cobb_maxxfrazerrealitykit-cardflip_2020} to include an option to enable and disable automatic naturalistic lighting using RealityKit's \textit{.disableAREnvironmentLighting} render option for a repeated measures study design.
-
-Before the start of the experiment participants were informed about the collection of data regarding the device activity and their questionnaire answers after both runs of the game.
+Before the start of the experiment, participants were informed about the collection of data regarding the device activity and their questionnaire answers after both runs of the game.
 Moreover, their right to withdraw from the experiment at any time was clarified as well as the possibility to ask for the deletion of all data associated with their person.
 The purpose of the experiment was stated to the participants in general terms as "investigating immersion in \gls{AR} games" to avoid influencing their perception of the scene by directing their attention towards lighting. 
-They were asked to fill a consent form in a Google Forms document (see Appendix \ref{sect:consent-form}).
+They were asked to fill the consent form detailed above.
 
-The game was presented to participants on an Apple iPad Pro 2017 (model number FPDY2FD/A) in an indoor setting with controlled lighting where participants were asked to complete as many rounds of the card-matching game with as few errors as possible for each of the two lighting conditions as they could, before they were interrupted after three minutes and the render option was changed for the second run.
+To further mitigate the risk of influencing participants and to address the concerns brought up by Jennett et al.~\cite{jennett_measuring_2008} regarding the effect of prior experience on immersion, participants were then given a trial period with a third lighting condition: disabled automatic naturalistic lighting and an added point light above the scene.
+After they had indicated to sufficiently understand the experiment application, participants were asked to complete as many rounds of the card-matching game with as few errors as possible, before they were interrupted after three minutes and the render option was changed for the second run following the study design of Jennett et al.~\cite{jennett_measuring_2008}.
+The motivation for this experiment design was to allow for a more challenging experience across player ability levels, thereby increasing flow~\cite{csikszentmihalyi_flow_1990} and general immersion levels as well as reducing overall variance in immersion~\cite{jennett_measuring_2008}.
 The order of both render options was randomized to improve reliability and participants were not informed about the currently active render option to avoid biases.
-
-The sample application was chosen due to its simplicity in functionality and visual presentation as well as general familiarity, thereby reducing the risk of errors in use or unwanted effects on immersion due to scene complexity or novelty.
-To further mitigate this risk and to address the concerns brought up by Jennett et al.~\cite{jennett_measuring_2008} regarding the effect of prior experience on immersion, participants were given a trial period with a third lighting condition: disabled automatic naturalistic lighting and an added point light above the scene.
-The goal stated to the participants was to complete as many rounds of the game as possible and with as few errors as possible, following the study design of Jennett et al.~\cite{jennett_measuring_2008}.
-The goal of this decision was to allow for a more challenging experience across player ability levels, thereby increasing flow~\cite{csikszentmihalyi_flow_1990} and general immersion levels as well as reducing overall variance in immersion~\cite{jennett_measuring_2008}.
 The first run was considered started after the participants indicated that they were ready for the experiment to begin.
-After the experiment, participants were debriefed and fully informed about the purpose of the study and given the opportunity to withdraw their consent.
-The duration of the experiment per participant was around twenty minutes.
 
-\subsection{Data collection}
-\label{sect:data_collection}
-
-During each run of the experiment, the \gls{IDE} Xcode and more specifically its \textit{Instruments} feature~\cite{apple_xcode_2020} were used to log the test device's \gls{CPU} utilization in three second intervals, according to Apple's type definitions~\cite{apple_system_2020}.
+During each run of the experiment, the \gls{IDE} Xcode and more specifically its \textit{Instruments} feature~\cite{apple_xcode_2020} were used to log the test device's \gls{CPU} utilization in three second intervals according to Apple's type definitions~\cite{apple_system_2020}.
 While there exists a more general power metric that can be logged through the same application~\cite{apple_energy_2020-1}, that metric is discrete, abstract, and too inaccurate to be elastic towards enabled and disabled automatic naturalistic lighting and was, therefore, not used.
 We decided not to have participants think aloud during their app usage to avoid unwanted effects on their immersion~\cite{van_den_haak_retrospective_2003}.
-After each run, participants were asked to fill out the \gls{IEQ} as provided in a Google Form (see Appendix \ref{sect:ieq}) to measure their levels of immersion dependent on the lighting treatment.
+
+After each run, participants were asked to fill out the \gls{IEQ} detailed above to measure their levels of immersion dependent on the lighting treatment.
 After the second run, participants were additionally asked about their general experience using the application and to elaborate on any differences they noticed between both runs.
 While alternatives such as tracking eye movement or measuring reaction times could also have been used to measure immersion~\cite{jennett_measuring_2008}, we chose a questionnaire approach as the most economical option that still has satisfactory precedence in literature~\cite{boyle_engagement_2012}.
-If a participant referred to "light", "lighting", "color", or "contrast" while answering these open questions, the difference in lighting was considered as noticed by the user.
+If a participant referred to "light", "lighting", "color", or "contrast" while answering the open questions in the questionnaire, the difference in lighting was considered as noticed by the user.
+
+After the experiment was completed, participants were debriefed and fully informed about the purpose of the study and given the opportunity to withdraw their consent.
+The duration of the experiment per participant was around twenty minutes.
 
 \subsection{Data analysis}
 \label{sect:data_analysis}
 
 After the above data had been successfully gathered, we conducted a statistical analysis regarding the participants' immersion levels and the \gls{CPU} usage between both lighting conditions using a Mann-Whitney U-test to check for significant differences.
 We chose this test because it does not require a normal distribution and because it was used by Jennett et al. in their original studies on immersion~\cite{jennett_measuring_2008}.
-However, the Student's \textit{t}-test's could also have been used if the data was normally distributed as for example Nordin et al.~\cite{nordin_attention_2013} did in their immersion experiments.
+However, the Student's \textit{t}-test's could also have been used---as for example Nordin et al.~\cite{nordin_attention_2013} did in their immersion experiments---, if the data were normally distributed.
 All statistical analysis was performed using Python 3.8.3 with the packages Pandas 1.1.4 and SciPy 1.5.4.
 All visualizations were created using Seaborn 0.11.0.
 Additionally, we report the results of the open questions.
 
 We are aware that neither the results of our statistical analysis nor those of our qualitative research should be used to infer knowledge about either the effect of automatic naturalistic lighting on immersion or energy consumption due to the small sample size.
-Rather, the analysis can give some indication as to the results of a full-scale study as well as enabling us to evaluate the chosen methods and tools.
+Rather, the analysis can give some indication as to the results of a full-scale study as well as enable us to evaluate the chosen methods and tools.
 
 \section{Results}
 \label{sect:results}
@@ -243,7 +253,7 @@ The enabled condition resulted in a significantly higher overall \gls{CPU} usage
 
 The results of our pre-study seem to indicate that there might not be a trade-off between improving immersion and increasing energy consumption when deploying automatic naturalistic lighting.
 Instead, it appears that immersion is largely unaffected by the feature while energy consumption as measured through \gls{CPU} usage in our experiment might be slightly increased.
-This would lead us to conclude that automatic naturalistic lighting should not be employed by designers and developers to preserve users' battery or free computational resources for alternative uses.
+This would lead us to conclude that automatic naturalistic lighting should not be employed by designers and developers, so that users' battery can be preserved or computational resources can be freed for alternative uses.
 We need, however, to look at the results in more detail to justify this conclusion.
 
 As our results regarding hypothesis \textbf{H1} show, the immersion scores for our seven participants did not significantly differ between enabled and disabled automatic naturalistic lighting.
@@ -254,10 +264,11 @@ This is further supported by our results regarding hypothesis \textbf{H1a}.
 According to the questionnaire data as well as the comments from our study participants, the visual characteristics of the scene did not appear noticeably different between both conditions.
 Even when the setup of the experiment was explained to the participants, some could not recall any difference in appearance between the conditions.
 Only when toggling the corresponding render setting for a live scene resulting in an immediate change, the participants were able to recognize that the virtual objects were lit differently.
-Similarly, the immersion scores for both groups–-those participants who claimed to have noticed a difference between both conditions and those who had not -- did not differ significantly.
+Similarly, the immersion scores for both groups–-those participants who claimed to have noticed a difference between both conditions and those who had not---did not differ significantly.
 It seems that the hypothesized improvement in scene realism brought about by automatic naturalistic lighting was not strong enough in our chosen application to be consciously perceived or to result in increased immersion as measured through the \gls{IEQ}.
 
-A similar impression emerges when examining \gls{CPU} usage: taking only the overall mean utilization into consideration, we would have to reject our hypothesis \textbf{H2}.
+A similar impression emerges when examining \gls{CPU} usage:
+Taking only the overall mean utilization into consideration, we would have to reject our hypothesis \textbf{H2}.
 Mean \gls{CPU} usage appears largely unaffected by enabling or disabling automatic naturalistic lighting with the results of our Mann-Whitney U-test showing no significant difference between both conditions and even the range of the two measurements being remarkably similar (disabled: 53.2\% to 70.1\%; enabled: 51.7\% to 71.3\%).
 When considering the distribution of all \gls{CPU} usage data between both conditions, however (i.e. treating the overall \gls{CPU} usage at any point of time during all experiments the same without aggregating the data for an experiment first), a slight but significant increase during enabled automatic naturalistic lighting can be observed.
 While this would generally support our hypothesis, the difference in \gls{CPU} usage is so small that it would likely not result in a perceivable difference in energy consumption or battery life for users of the sample application.
@@ -265,7 +276,7 @@ This conclusion would, however, need to be validated by another study.
 
 This leaves us with the overall result of our pre-study:
 While the difference between both conditions can be noticed in a side-by-side comparison, enabling or disabling automatic naturalistic lighting does not have a significant effect on the appearance of \gls{AR} scenes and consequently on immersion.
-And while it statistically could be argued -- even with our small sample size -- that \gls{CPU} usage and thereby energy consumption is affected by this choice, it would likely not result in a meaningful difference for the user experience of an \gls{AR} application.
+And, while it statistically could be argued---even with our small sample size---that \gls{CPU} usage and thereby energy consumption is affected by this choice, it would likely not result in a meaningful difference for the user experience of an \gls{AR} application.
 It is, therefore, within designers' and developers' volition whether to enable or disable automatic naturalistic lighting for their applications according to their preferences or other decision factors than those examined in this study.
 
 We are, however, aware of the numerous limitations of our pre-study and want to give as complete an account as possible of these weaknesses to prepare for a possible full-scale study with a greater number of participants investigating the same relationships.
@@ -306,7 +317,7 @@ It was, furthermore, noticeable that all participants moved the device during th
 They instead remained in a fixed position once a comfortable posture was discovered and only interacted with the application by tapping the screen.
 One participant tried multiple different postures, positions, distances, and orientations during the trial phase but, just as the other participants, stopped this exploratory behavior completely once the first run started.
 In an \gls{AR} application, it could be argued, users should move to immerse themselves in the experience provided which our sample application failed to motivate.
-Instead, the fact that most participants stood still for the entire experiment might have lead to generally too low immersion levels to find a difference between both tested conditions.
+Instead, the lack of movement that most participants exhibited during the experiment might have lead to generally too low immersion levels to find a difference between both tested conditions.
 All of these observations seem to indicate generally questionable usability of the chosen application that should be addressed for a full-scale study.
 
 Our discussions with the participants revealed that the reliability and usability issues we observed matched the participants' experiences.
@@ -323,8 +334,8 @@ This was especially problematic when multiple participants were in the same room
 For a full-scale study, a consistent laboratory room with controlled lighting and minimal distractions should be used instead to avoid these inconsistencies and disturbances.
 
 In regard to the procedure, the lack of a clear script or protocol to explain the experiment in detail and consistently to each participant became clear when multiple participants stopped after their first completed round of the sample game during the first tested condition.
-Despite the explanations given by the testers, they were unaware that their goal was to complete as many rounds of the game with as few errors as possible within the given time frame.
-This shows that the explanations were unable to provide the participants with the necessary information about their task during the experiment.
+Despite the explanations given by the testers, they were unaware of their goal to complete as many rounds of the game with as few errors as possible within the given time frame.
+This shows that the explanations were unable to provide participants with sufficiently understandable descriptions of the tasks that were expected from them.
 For a full-scale study, a clear protocol to be read aloud by the tester should be considered.
 Moreover, as one participant pointed out, the inclusion of a placebo condition might be an appropriate addition to further control bias.
 While the randomization is well suited to reduce the effect of order on the overall immersion scores, introducing a condition where participants are shown the same lighting in both conditions could reveal further information about the study design's effect on the results.
@@ -339,30 +350,30 @@ One simple way to mitigate this problem would therefore be to leave the room whe
 Third, we became aware that our definition of "noticing a difference between both tested conditions" using a very limited dictionary approach was too wide and therefore might have lead to some inconsistencies in understanding.
 This might have influenced the results of our analysis regarding hypothesis \textbf{H1a}, since we did not find any clear indication whether users would or would not notice the difference in lighting.
 For a full-scale study, this should be further defined and included in the form to be answered by the participant.
-Finally, the choice of the \gls{IEQ} might have to be re-considered since some of the questions (e.g. To what extent was your sense of being in the game environment stronger than your sense of being the real world?) are less suited for an \gls{AR} game.
-This might be one of the reasons, why our preliminary results regarding \textbf{H1} seem to indicate no significant effect of automatic naturalistic lighting on overall immersion.
+Finally, the choice of the \gls{IEQ} might have to be re-considered since some of the questions (e.g. "To what extent was your sense of being in the game environment stronger than your sense of being the real world?") are less suited for an \gls{AR} game.
+This might be one of the reasons why our preliminary results regarding hypothesis \textbf{H1} seem to indicate no significant effect of automatic naturalistic lighting on overall immersion.
 Since available alternatives exist that are in some cases even developed specifically for \gls{AR} applications~\cite{georgiou_development_2017}, these should be reviewed before conducting a full-scale study based on the \gls{IEQ}.
 
-Similarly, it can be argued that \gls{CPU} usage is an unsuitable measure for energy consumption since we did not examine their correlation for our tested application.
+Similarly, it can be argued that \gls{CPU} usage is an unsuitable measure for energy consumption since we did not examine their assumed correlation for our tested application.
 This objection is further supported by the fact that, typically, the \gls{GPU} handles most computation for rendering and that overall \gls{CPU} usage is not only affected by the sample application.
 Multiple background services might mask the effect of automatic naturalistic lighting on the \gls{CPU}.
-While the measure was chosen, among other reasons, because of its granular logging possibilities and while it seems to be affected by the rendering condition in our preliminary testing (see the analysis regarding \textbf{H2} in Section \ref{sect:results}), these concerns should be addressed by further research considering alternative measures and frameworks.
-Additionally, it could be tested whether \gls{CPU} usage and energy consumption correlate using more direct but less granular measures like Instrument's Abstract Power Measurement~\cite{apple_abstract_2020}.
+While the measure was chosen, because of its granular logging possibilities, because of the \gls{CPU}'s assumed sensitivity to graphics rendering as the test device uses an integrated system on a chip~\cite{apple_apple_2017}, and while it seems to be affected by the rendering condition in our preliminary testing (see the analysis regarding \textbf{H2} in Section \ref{sect:results}), these concerns should be addressed by further research considering alternative measures and frameworks.
+Additionally, it could be tested whether \gls{CPU} usage and energy consumption correlate using more direct but less granular measures like Xcode's Instrument's Abstract Power Measurement~\cite{apple_abstract_2020}.
 
-Finally, it should be reviewed whether the study design and tooling provided by this project is economical enough for a full-scale study.
-Since the setup requirements are quite high -- a consistently available room with minimal distractions and controlled lighting, a consistent and high-powered test device, at least one tester per participant, and both a questionnaire as well as an experiment -- and since the results might be fast outdated due to fast-changing \glsplural{API} and their underlying technology, a full-scale study might consider splitting off or re-designing parts of the study, for example by testing the effect of automatic naturalistic lighting on energy consumption in a separate, more controlled study without participants.
+Finally, it should be reviewed whether the study design and tooling provided by this project are economical enough for a full-scale study.
+Since the setup requirements are quite high---a consistently available room with minimal distractions and controlled lighting, a consistent and high-powered test device, at least one tester per participant, and both a questionnaire as well as an experiment---and since the results might be fast outdated due to fast-changing \glsplural{API} and their underlying technology, a full-scale study might consider splitting off or re-designing parts of the study, for example by testing the effect of automatic naturalistic lighting on energy consumption in a separate, more controlled study without participants.
 If the study design is deemed economical, it should be considered whether to expand the scope by including multiple devices and API versions to test for their effect on the results.
 
 \section{Conclusion}
 \label{sect:conclusion}
 
-While our pre-study has several limitations in regards to general knowledge that can be inferred from our results, there seem to be some indications in regards to our research questions.
+While our pre-study has several limitations in regards to general knowledge that can be inferred from our results, it seems to give some valuable indications for our research questions.
 Concerning research question \textbf{RQ1} whether users of \gls{AR} applications would experience a difference in immersion between enabled and disabled automatic naturalistic lighting, the results of our analysis seem to suggest that there might not be a considerable effect of automatic naturalistic lighting on immersion.
-As both the answers to the \gls{IEQ} and the comments of our participants indicate, the difference in colors and contrast caused by enabling automatic naturalistic lighting might generally not strong enough to be noticeable without directing users' attention to it.
-Regarding research question \textbf{RQ1a}, this means that -- while participants might perceive a difference between both conditions -- the difference in lighting is so subtle that users have difficulty articulating what caused this impression.
-Finally, in regards to research question \textbf{RQ2}, our results point to a slight increase in \gls{CPU} usage when enabling automatic naturalistic lighting.
+As both the answers to the \gls{IEQ} and the comments of our participants indicate, the difference in colors and contrast caused by enabling automatic naturalistic lighting might generally not be strong enough to be noticeable without directing users' attention to it.
+Regarding research question \textbf{RQ1a} whether participants would be able to tell that lighting was the cause for any perceived difference between both conditions, this means that---while participants might in fact perceive a difference between both conditions---the difference in lighting is so subtle that users have difficulty articulating what caused this impression.
+Finally, in regards to research question \textbf{RQ2} how automatic naturalistic lighting would affect \gls{CPU} utilization, our results point to a slight increase when enabling automatic naturalistic lighting.
 This effect might, however, be so small as to be unnoticeable in real-world usage.
-For a more meaningful account, additional measures that more closely relate to device battery life should be monitored as well.
+For a more meaningful account, additional measures that more closely relate to device energy consumption and battery life should be monitored as well.
 Overall, the proposed method and tools are suitable to conduct a full-scale study on the effects of automatic naturalistic lighting on immersion and energy consumption that builds on the results of this pre-study, but each of the parts should carefully be considered, evaluated, and possibly modified before investing heavily in such an endeavor.
 This study should be used as a starting point for designing such a full-scale study.
 
@@ -372,12 +383,14 @@ This study should be used as a starting point for designing such a full-scale st
 \bibliographystyle{myIEEEtran}
 
 \appendix
-\section{Appendix: Immersive Experience Questionnaire}
-\label{sect:appendix}
-\label{sect:ieq}
-\subfile{lib/ieq}
 \section{Appendix: Participants' Consent Form}
+\label{sect:appendix}
 \label{sect:consent-form}
 \subfile{lib/consent-form}
+
+\section{Appendix: Immersive Experience Questionnaire}
+\label{sect:ieq}
+\subfile{lib/ieq}
+
 \clearpage
 \end{document}
