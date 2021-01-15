@@ -99,7 +99,7 @@ As Witmer and Singer argue, this sense of "scene realism" is one of the governin
 
 Since we were limited by our resources in terms of time and budget, however, and since this research project was conducted during the COVID-19 pandemic, we were not able to reach the necessary number of participants that would be required to fully illuminate said relationship.
 Instead, we focused on conducting a smaller scale pre-study that can give some indication about the results as well as provide some insights into the suitability of our chosen methods and tools.
-The deliverables of our project are, therefore: an example \gls{AR} application to measure immersion levels and monitor energy consumption, a tested and evaluated method (setup, procedure, and analysis) for a full-scale study and an indication for the results of said study.
+The deliverables of our project are, therefore: an example \gls{AR} application to measure immersion levels and monitor energy consumption, a tested and evaluated method (setup, procedure, and analysis) for a full-scale study, and an indication for the results of said study.
 
 \subsection{Research Questions}
 
@@ -229,7 +229,7 @@ Contrary to our first hypothesis \textbf{H1}, overall immersion scores did not d
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.5\textwidth]{imgs/immersion_plot}
-    \caption{Immersion scores for the disabled and enabled conditions in our small pre-study ($ N = 7 $).}
+    \caption{Immersion scores for the disabled and enabled conditions in our small pre-study ($ n = 7 $).}
     \label{fig:immersion_plot}
 \end{figure}
 
@@ -357,12 +357,12 @@ Since available alternatives exist that are in some cases even developed specifi
 Similarly, it can be argued that \gls{CPU} usage is an unsuitable measure for energy consumption since we did not examine their assumed correlation for our tested application.
 This objection is further supported by the fact that, typically, the \gls{GPU} handles most computation for rendering and that overall \gls{CPU} usage is not only affected by the sample application.
 Multiple background services might mask the effect of real-time light estimation on the \gls{CPU}.
-While the measure was chosen, because of its granular logging possibilities, because of the \gls{CPU}'s assumed sensitivity to graphics rendering as the test device uses an integrated system on a chip~\cite{apple_apple_2017}, and while it seems to be affected by the rendering condition in our preliminary testing (see the analysis regarding \textbf{H2} in Section \ref{sect:results}), these concerns should be addressed by further research considering alternative measures and frameworks.
+While the measure was chosen because of (1) its granular logging possibilities, (2) because of the \gls{CPU}'s assumed sensitivity to graphics rendering as the test device uses an integrated system on a chip~\cite{apple_apple_2017}, and while (3) it seems to be affected by the rendering condition in our preliminary testing (see the analysis regarding \textbf{H2} in Section \ref{sect:results}), these concerns should be addressed by further research considering alternative measures and frameworks.
 Additionally, it could be tested whether \gls{CPU} usage and energy consumption correlate using more direct but less granular measures like Xcode's Instrument's Abstract Power Measurement~\cite{apple_abstract_2020}.
 
 Finally, it should be reviewed whether the study design and tooling provided by this project are economical enough for a full-scale study.
 Since the setup requirements are quite high---a consistently available room with minimal distractions and controlled lighting, a consistent and high-powered test device, at least one tester per participant, and both a questionnaire as well as an experiment---and since the results might be fast outdated due to fast-changing \glsplural{API} and their underlying technology, a full-scale study might consider splitting off or re-designing parts of the study, for example by testing the effect of real-time light estimation on energy consumption in a separate, more controlled study without participants.
-If the study design is deemed economical, it should be considered whether to expand the scope by including multiple devices and API versions to test for their effect on the results.
+If the study design is deemed economical, it should be considered whether to expand the scope by including multiple devices, multiple framework APIs as well as multiple API versions to test for their effect on the results.
 
 \section{Conclusion}
 \label{sect:conclusion}
