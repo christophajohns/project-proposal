@@ -1,3 +1,3 @@
 #!/bin/bash
 echo "Generating the word file"
-docker run --rm --volume "`pwd`:/data" --user `id -u`:`id -g` pandoc/latex:2.9 -f latex -t docx II2202-proposal.tex -o StefanoFormicola_ChristophAlbertJohns-Draft_Report-20201208.docx
+docker run --rm --volume "`pwd`:/data" --user `id -u`:`id -g` pandoc/latex:2.9 -f latex -t docx II2202-proposal.tex -o StefanoFormicola_ChristophAlbertJohns-Final_Report-20210115.docx
